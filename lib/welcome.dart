@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:login/login.dart';
-import 'package:login/signup.dart';
+import 'login.dart';
+import 'signup.dart';
 import 'package:random_color/random_color.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -210,17 +210,16 @@ class _WelcomeState extends State<Welcome> {
         }
       },
     );
-      final DocumentReference document =
-      Firestore.instance.collection("users").document(user.uid);
+    final DocumentReference document =
+        Firestore.instance.collection("users").document(user.uid);
 
-      await document.get().then<dynamic>((DocumentSnapshot snapshot1) async {
-        if(snapshot1.exists){
-          setState(() {
-            prem = snapshot1.data['premium'];
-          });
-        }
-      });
-
+    await document.get().then<dynamic>((DocumentSnapshot snapshot1) async {
+      if (snapshot1.exists) {
+        setState(() {
+          prem = snapshot1.data['premium'];
+        });
+      }
+    });
 
     print("Value of premiumm  welcome.dart file is ************ = " +
         prem.toString());

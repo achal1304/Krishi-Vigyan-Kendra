@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getflutter/getwidget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
-import 'package:login/ViewCoupons.dart';
+import 'ViewCoupons.dart';
 import 'crud.dart';
 
 class FoodCoupon extends StatefulWidget {
@@ -38,13 +38,12 @@ class _FoodCouponState extends State<FoodCoupon> {
   int prevdinn = 0;
   DateTime daynow = DateTime.now().add((Duration(days: 3)));
 
-
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   dynamic data;
 
   Future<dynamic> getUserProgress() async {
     final DocumentReference document =
-    Firestore.instance.collection("users").document(widget._user.uid);
+        Firestore.instance.collection("users").document(widget._user.uid);
 
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       // data = snapshot.data;
@@ -65,27 +64,26 @@ class _FoodCouponState extends State<FoodCoupon> {
   Widget build(BuildContext context) {
     //couponsavail = data['FoodCoupons'];
     return Scaffold(
-        key: _scaffoldKey,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            'Book Coupons',
-            style: TextStyle(color: Colors.black),
-            textScaleFactor: 1.2,
-          ),
-          backgroundColor: Colors.white,
-          elevation: 0.5,
-          leading: IconButton(
-            icon: FaIcon(Icons.arrow_back_ios),
-            color: Colors.black,
-            iconSize: 35,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+      key: _scaffoldKey,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Book Coupons',
+          style: TextStyle(color: Colors.black),
+          textScaleFactor: 1.2,
         ),
-        body:
-      SingleChildScrollView(
+        backgroundColor: Colors.white,
+        elevation: 0.5,
+        leading: IconButton(
+          icon: FaIcon(Icons.arrow_back_ios),
+          color: Colors.black,
+          iconSize: 35,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -140,13 +138,11 @@ class _FoodCouponState extends State<FoodCoupon> {
                   hintText: dob,
                   border: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: Colors.blueAccent, width: 32.0),
+                          BorderSide(color: Colors.blueAccent, width: 32.0),
                       borderRadius: BorderRadius.circular(25.0)),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
+                        color: Theme.of(context).scaffoldBackgroundColor,
                         width: 32.0),
                     borderRadius: BorderRadius.circular(25.0),
                   ),
@@ -156,7 +152,10 @@ class _FoodCouponState extends State<FoodCoupon> {
             StreamBuilder<DocumentSnapshot>(
                 stream: Firestore.instance
                     .collection('users')
-                    .document(widget._user.uid).collection("Food Coupons").document(dob).snapshots(),
+                    .document(widget._user.uid)
+                    .collection("Food Coupons")
+                    .document(dob)
+                    .snapshots(),
                 builder: (BuildContext context,
                     AsyncSnapshot<DocumentSnapshot> snapshot) {
                   if (snapshot.hasError) {
@@ -165,24 +164,28 @@ class _FoodCouponState extends State<FoodCoupon> {
                     prevbreak = snapshot.data['Breakfast'];
                     prevlunch = snapshot.data['Lunch'];
                     prevdinn = snapshot.data['Dinner'];
-                    if(prevbreak == null)
+                    if (prevbreak == null)
                       setState(() {
                         prevbreak = 0;
                       });
-                    if(prevlunch == null)
+                    if (prevlunch == null)
                       setState(() {
                         prevlunch = 0;
                       });
-                    if(prevdinn == null)
+                    if (prevdinn == null)
                       setState(() {
                         prevdinn = 0;
                       });
 
                     return Container(
-                      height: 0.0,width: 0.0,
+                      height: 0.0,
+                      width: 0.0,
                     );
                   }
-                  return Container(height: 0.0,width: 0.0,);
+                  return Container(
+                    height: 0.0,
+                    width: 0.0,
+                  );
                 }),
             Container(
               decoration: BoxDecoration(),
@@ -240,9 +243,16 @@ class _FoodCouponState extends State<FoodCoupon> {
               ),
             ),
             GFButton(
-              onPressed: () async{
-                if(_currentCount + _currentCountBrake + _currentCountDinn != 0 && dob != "Select date"){
-                  await Crud().addFoodCoupons(widget._user,_currentCountBrake + prevbreak,_currentCount + prevlunch, _currentCountDinn + prevdinn, dob);
+              onPressed: () async {
+                if (_currentCount + _currentCountBrake + _currentCountDinn !=
+                        0 &&
+                    dob != "Select date") {
+                  await Crud().addFoodCoupons(
+                      widget._user,
+                      _currentCountBrake + prevbreak,
+                      _currentCount + prevlunch,
+                      _currentCountDinn + prevdinn,
+                      dob);
                   await Crud().updateCouponsAvail(widget._user, couponsavail);
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
@@ -251,7 +261,7 @@ class _FoodCouponState extends State<FoodCoupon> {
                     ),
                   );
                 }
-                if(dob == "Select date"){
+                if (dob == "Select date") {
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
                       content: Text('Please select date'),
@@ -259,7 +269,8 @@ class _FoodCouponState extends State<FoodCoupon> {
                     ),
                   );
                 }
-                if(_currentCount + _currentCountBrake + _currentCountDinn == 0){
+                if (_currentCount + _currentCountBrake + _currentCountDinn ==
+                    0) {
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
                       content: Text('Please select coupons'),
@@ -273,7 +284,7 @@ class _FoodCouponState extends State<FoodCoupon> {
               size: GFSize.LARGE,
             ),
             GFButton(
-              onPressed: () async{
+              onPressed: () async {
                 Navigator.push(
                   context,
                   MaterialPageRoute(

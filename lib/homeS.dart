@@ -4,9 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:login/crud.dart';
-import 'package:login/normalusers.dart';
-import 'package:login/signupeditprofile.dart';
+import 'crud.dart';
+import 'normalusers.dart';
+import 'signupeditprofile.dart';
 import 'package:random_color/random_color.dart';
 
 import 'adminpage.dart';
@@ -50,7 +50,7 @@ class _HomePageSState extends State<HomePageS> {
 
   @override
   void initState() {
-    addOnStart(data,prem);
+    addOnStart(data, prem);
     super.initState();
   }
 
@@ -122,9 +122,9 @@ class _HomePageSState extends State<HomePageS> {
     );
   }
 
-  void addOnStart(dynamic data,bool prem) {
+  void addOnStart(dynamic data, bool prem) {
     //if (data == true)
-    Crud().storeData1(widget._user, data,prem);
+    Crud().storeData1(widget._user, data, prem);
     // else
     //   Crud().storeData(widget._user);
   }
@@ -164,14 +164,14 @@ class _HomePageSState extends State<HomePageS> {
     return Container(
         child: Center(
             child: Text(
-              "Welcome to ISKCON PUNE",
-              style: TextStyle(
-                  decoration: TextDecoration.none,
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.normal,
-                  fontFeatures: null),
-            )));
+      "Welcome to ISKCON PUNE",
+      style: TextStyle(
+          decoration: TextDecoration.none,
+          color: Colors.white,
+          fontSize: 22,
+          fontWeight: FontWeight.normal,
+          fontFeatures: null),
+    )));
 //    return Center(
 //      child: OutlineButton(
 //        padding: EdgeInsets.symmetric(vertical: 15),
@@ -210,13 +210,13 @@ class _HomePageSState extends State<HomePageS> {
     return Container(
         child: Center(
             child: Text(
-              "Welcome to ISKCON PUNE",
-              style: TextStyle(
-                  decoration: TextDecoration.none,
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.normal,
-                  fontFeatures: null),
-            )));
+      "Welcome to ISKCON PUNE",
+      style: TextStyle(
+          decoration: TextDecoration.none,
+          color: Colors.white,
+          fontSize: 22,
+          fontWeight: FontWeight.normal,
+          fontFeatures: null),
+    )));
   }
 }

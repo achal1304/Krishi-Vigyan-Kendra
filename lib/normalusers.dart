@@ -10,15 +10,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
-import 'package:login/demo.dart';
-import 'package:login/donate.dart';
-import 'package:login/editprofile.dart';
-import 'package:login/picker.dart';
-import 'package:login/viewcourses.dart';
-import 'package:login/viewvideo.dart';
+import 'demo.dart';
+import 'donate.dart';
+import 'editprofile.dart';
+import 'picker.dart';
+import 'viewcourses.dart';
+import 'viewvideo.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'feedback.dart';
-// import 'package:login/picker.dart';
+// import 'picker.dart';
 
 // import 'addevent.dart';
 import 'aboutus.dart';
@@ -82,7 +82,7 @@ class _NormalUsersState extends State<NormalUsers> {
   //final List<Message> messages = [];
   String tok;
   String data1;
-  bool isuseradmin  = true;
+  bool isuseradmin = true;
 
   @override
   void initState() {
@@ -307,7 +307,6 @@ class _NormalUsersState extends State<NormalUsers> {
                       //isAdmin: false,
                       widget._user,
                       widget._googleSignIn,
-
                     ),
                   ),
                 );
@@ -327,7 +326,6 @@ class _NormalUsersState extends State<NormalUsers> {
                       //isAdmin: false,
                       widget._user,
                       widget._googleSignIn,
-
                     ),
                   ),
                 );
@@ -433,7 +431,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 size: 23.0,
               ),
               title: Text('Share App'),
-              onTap: () async{
+              onTap: () async {
                 share();
               },
             ),
@@ -861,7 +859,6 @@ class _NormalUsersState extends State<NormalUsers> {
         onSelectNotification: selectNotification);
   }
 
-
   Future onDidReceiveLocalNotification(
       int id, String title, String body, String payload) async {
     // display a dialog with the notification details, tap ok to go to another page
@@ -916,6 +913,7 @@ class _NormalUsersState extends State<NormalUsers> {
     // send key to your server to allow server to use
     // this token to send push notifications
   }
+
   Future<void> share() async {
     await FlutterShare.share(
         title: 'Example share',

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getflutter/getflutter.dart';
-import 'package:login/registeredusers.dart';
+import 'registeredusers.dart';
 
 import 'coursepayment.dart';
 import 'crud.dart';
@@ -19,21 +19,22 @@ class CustomCardCoursesDescription extends StatefulWidget {
   // GoogleSignIn _googleSignIn;
   // FirebaseUser _user;
 
-  CustomCardCoursesDescription({@required this.title,
-    @required this.description,
-    //@required this.topic,
-    @required BuildContext context,
-    @required this.isAdmin1,
-    @required this.edate,
-    @required this.stime,
-    @required this.url,
-    @required this.type,
-    @required this.venue,
-    @required this.useremail,
-    @required this.usercoursename,
-    @required this.startdatetimestamp,
-    @required this.registrationform,
-    @required this.payamount}) {
+  CustomCardCoursesDescription(
+      {@required this.title,
+      @required this.description,
+      //@required this.topic,
+      @required BuildContext context,
+      @required this.isAdmin1,
+      @required this.edate,
+      @required this.stime,
+      @required this.url,
+      @required this.type,
+      @required this.venue,
+      @required this.useremail,
+      @required this.usercoursename,
+      @required this.startdatetimestamp,
+      @required this.registrationform,
+      @required this.payamount}) {
     c1 = context;
   }
 
@@ -124,7 +125,7 @@ class _CustomCardCoursesDescriptionState
     if (response.statusCode != 200) {
       Scaffold.of(context).showSnackBar(SnackBar(
         content:
-        Text('[${response.statusCode}] Error message: ${response.body}'),
+            Text('[${response.statusCode}] Error message: ${response.body}'),
       ));
     }
   }
@@ -143,7 +144,7 @@ class _CustomCardCoursesDescriptionState
         print("onMessage: $message");
         final notification = message['notification'];
         setState(
-              () {
+          () {
             messages.add(
               Message(
                 // title: notification['title'],
@@ -221,8 +222,7 @@ class _CustomCardCoursesDescriptionState
                   onTap: () async {
                     await showDialog(
                         context: context,
-                        builder: (_) =>
-                            ImageDialog(
+                        builder: (_) => ImageDialog(
                               url: widget.url,
                             ));
                   },
@@ -258,10 +258,7 @@ class _CustomCardCoursesDescriptionState
                     ),
                   ),
                   SizedBox(
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width * 0.16,
+                    width: MediaQuery.of(context).size.width * 0.16,
                   ),
                   Text(
                     "Ends on: " + widget.edate,
@@ -304,8 +301,8 @@ class _CustomCardCoursesDescriptionState
             Divider(
               thickness: 0.5,
             ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 100),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 100),
               child: noti(),
             ),
             Padding(
@@ -329,7 +326,7 @@ class _CustomCardCoursesDescriptionState
         color: Colors.blueAccent,
 //        backgroundColor: Colors.blueAccent,
 //        elevation: 0.5,
-        child:Text(
+        child: Text(
           "Send Notification",
           style: TextStyle(fontSize: 12),
         ),
@@ -351,83 +348,80 @@ class _CustomCardCoursesDescriptionState
                   child: Container(
                     child: Column(
                       children: <Widget>[
-                      TextFormField(
-                      controller: title,
-                      decoration: InputDecoration(
+                        TextFormField(
+                          controller: title,
+                          decoration: InputDecoration(
 //                        prefixIcon: Icon(Icons.mail_outline),
-                        contentPadding:
-                        EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        hintText: "Title",
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.blueAccent, width: 32.0),
-                            borderRadius: BorderRadius.circular(5.0)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color:
-                              Theme
-                                  .of(context)
-                                  .scaffoldBackgroundColor,
-                              width: 32.0),
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
+                            contentPadding:
+                                EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                            hintText: "Title",
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.blueAccent, width: 32.0),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color:
+                                      Theme.of(context).scaffoldBackgroundColor,
+                                  width: 32.0),
+                              borderRadius: BorderRadius.circular(25.0),
+                            ),
+                          ),
 //                          validator: (mailid) {
 //                            if (!emailRegex.hasMatch(mailid)) {
 //                              return 'Please enter valid Email';
 //                            }
 //                            return null;
 //                          },
-                    ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    TextFormField(
-                      controller: body,
-                      decoration: InputDecoration(
-//                        prefixIcon: Icon(Icons.person),
-                        contentPadding:
-                        EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                        hintText: "Body",
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.blueAccent, width: 32.0),
-                            borderRadius: BorderRadius.circular(5.0)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color:
-                              Theme
-                                  .of(context)
-                                  .scaffoldBackgroundColor,
-                              width: 32.0),
-                          borderRadius: BorderRadius.circular(25.0),
                         ),
-                      ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        TextFormField(
+                          controller: body,
+                          decoration: InputDecoration(
+//                        prefixIcon: Icon(Icons.person),
+                            contentPadding:
+                                EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                            hintText: "Body",
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.blueAccent, width: 32.0),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color:
+                                      Theme.of(context).scaffoldBackgroundColor,
+                                  width: 32.0),
+                              borderRadius: BorderRadius.circular(25.0),
+                            ),
+                          ),
 //                          validator: (name) {
 //                            if (name.isEmpty) {
 //                              return 'Please enter Name';
 //                            }
 //                            return null;
 //                          },
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        FloatingActionButton.extended(
+                          backgroundColor: Colors.blueAccent,
+                          elevation: 0.5,
+                          label: new Text(
+                            "Send Notification",
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          onPressed: () async {
+                            await sendNotification();
+                          },
+                        )
+                      ],
                     ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    FloatingActionButton.extended(
-                      backgroundColor: Colors.blueAccent,
-                      elevation: 0.5,
-                      label: new Text(
-                        "Send Notification",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      onPressed: () async {
-                        await sendNotification();
-                      },
-                    )
-                    ],
                   ),
                 ),
-              ),);
+              );
             }));
   }
 
@@ -471,7 +465,7 @@ class _CustomCardCoursesDescriptionState
       return FlatButton(
         textColor: Colors.white,
         color: Colors.blueAccent,
-        child:Text(
+        child: Text(
           "Registered users",
           style: TextStyle(fontSize: 12),
         ),
@@ -480,8 +474,7 @@ class _CustomCardCoursesDescriptionState
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) =>
-                      RegisteredUsers(
+                  builder: (context) => RegisteredUsers(
                         usercoursename: widget.usercoursename,
                         useremail: widget.useremail,
                         description: widget.description,
@@ -570,7 +563,7 @@ class _CustomCardCoursesDescriptionState
                                 Divider(),
                                 Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceAround,
+                                      MainAxisAlignment.spaceAround,
                                   children: <Widget>[
                                     FlatButton(
                                       child: Text(
@@ -888,7 +881,8 @@ class _CustomCardCoursesDescriptionState
     }
   }
 
-  Widget _buildchild(List<dynamic> arr,
+  Widget _buildchild(
+      List<dynamic> arr,
       TextEditingController name,
       TextEditingController address,
       TextEditingController contact,
@@ -896,138 +890,126 @@ class _CustomCardCoursesDescriptionState
       String _sp) {
     return Container(
         child: Column(
-          children: <Widget>[
-            Text("Participant :" + _sp),
-            if (_sp != "1")
-              TextFormField(
-                controller: mailid,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.mail_outline),
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  hintText: "Email",
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.blueAccent, width: 32.0),
-                      borderRadius: BorderRadius.circular(5.0)),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
-                        width: 32.0),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                ),
-                validator: (mailid) {
-                  if (!emailRegex.hasMatch(mailid)) {
-                    return 'Please enter valid Email';
-                  }
-                  return null;
-                },
+      children: <Widget>[
+        Text("Participant :" + _sp),
+        if (_sp != "1")
+          TextFormField(
+            controller: mailid,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.mail_outline),
+              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              hintText: "Email",
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
+                  borderRadius: BorderRadius.circular(5.0)),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    width: 32.0),
+                borderRadius: BorderRadius.circular(25.0),
               ),
-            SizedBox(
-              height: 5.0,
             ),
-            if (arr.contains("Name"))
-              TextFormField(
-                controller: name,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  hintText: "Name",
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.blueAccent, width: 32.0),
-                      borderRadius: BorderRadius.circular(5.0)),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
-                        width: 32.0),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                ),
-                validator: (name) {
-                  if (name.isEmpty) {
-                    return 'Please enter Name';
-                  }
-                  return null;
-                },
+            validator: (mailid) {
+              if (!emailRegex.hasMatch(mailid)) {
+                return 'Please enter valid Email';
+              }
+              return null;
+            },
+          ),
+        SizedBox(
+          height: 5.0,
+        ),
+        if (arr.contains("Name"))
+          TextFormField(
+            controller: name,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.person),
+              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              hintText: "Name",
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
+                  borderRadius: BorderRadius.circular(5.0)),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    width: 32.0),
+                borderRadius: BorderRadius.circular(25.0),
               ),
-            SizedBox(
-              height: 5.0,
             ),
-            if (arr.contains("Address"))
-              TextFormField(
-                controller: address,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.my_location),
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  hintText: "Address",
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.blueAccent, width: 32.0),
-                      borderRadius: BorderRadius.circular(5.0)),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
-                        width: 32.0),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                ),
-                validator: (address) {
-                  if (address.isEmpty) {
-                    return 'Please enter Address';
-                  }
-                  return null;
-                },
+            validator: (name) {
+              if (name.isEmpty) {
+                return 'Please enter Name';
+              }
+              return null;
+            },
+          ),
+        SizedBox(
+          height: 5.0,
+        ),
+        if (arr.contains("Address"))
+          TextFormField(
+            controller: address,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.my_location),
+              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              hintText: "Address",
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
+                  borderRadius: BorderRadius.circular(5.0)),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    width: 32.0),
+                borderRadius: BorderRadius.circular(25.0),
               ),
-            SizedBox(
-              height: 5.0,
             ),
-            if (arr.contains("Contact No."))
-              TextFormField(
-                controller: contact,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.contact_phone),
-                  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                  hintText: "Contact No",
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.blueAccent, width: 32.0),
-                      borderRadius: BorderRadius.circular(5.0)),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
-                        width: 32.0),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                ),
-                validator: (address) {
-                  if (address.length != 10) {
-                    return 'Please enter valid Contact No.';
-                  }
-                  return null;
-                },
+            validator: (address) {
+              if (address.isEmpty) {
+                return 'Please enter Address';
+              }
+              return null;
+            },
+          ),
+        SizedBox(
+          height: 5.0,
+        ),
+        if (arr.contains("Contact No."))
+          TextFormField(
+            controller: contact,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.contact_phone),
+              contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              hintText: "Contact No",
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
+                  borderRadius: BorderRadius.circular(5.0)),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    width: 32.0),
+                borderRadius: BorderRadius.circular(25.0),
               ),
-            SizedBox(
-              height: 5.0,
             ),
-            Divider(
-              thickness: 0.5,
-            ),
-            if (arr.length == 0)
-              Container(
-                height: 0.0,
-                width: 0.0,
-              )
-          ],
-        ));
+            validator: (address) {
+              if (address.length != 10) {
+                return 'Please enter valid Contact No.';
+              }
+              return null;
+            },
+          ),
+        SizedBox(
+          height: 5.0,
+        ),
+        Divider(
+          thickness: 0.5,
+        ),
+        if (arr.length == 0)
+          Container(
+            height: 0.0,
+            width: 0.0,
+          )
+      ],
+    ));
   }
 
 //  dynamic data;

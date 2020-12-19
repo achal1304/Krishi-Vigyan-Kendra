@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 //import 'package:font_awesome_flutter/fa_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
-import 'package:login/crud.dart';
+import 'crud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -113,17 +113,14 @@ class AddVideoState extends State<AddVideo> {
               child: ListTile(
                 title: Text('Live Video'),
                 trailing: CupertinoSwitch(
-                  activeColor: Colors.blue,
-                  value: isLive,
-                  onChanged: (bool value) {
-                    setState(() {
-                      isLive = value;
-                      saveIsLive();
-                    });
-                    
-                    
-                  }
-                ),
+                    activeColor: Colors.blue,
+                    value: isLive,
+                    onChanged: (bool value) {
+                      setState(() {
+                        isLive = value;
+                        saveIsLive();
+                      });
+                    }),
                 onTap: () {
                   setState(() {
                     isLive = !isLive;
@@ -146,7 +143,7 @@ class AddVideoState extends State<AddVideo> {
           //             showIcon = value;
           //             saveIcon();
           //           });
-                    
+
           //         }
           //       ),
           //       onTap: () {
@@ -157,7 +154,7 @@ class AddVideoState extends State<AddVideo> {
           //     ),
           //   ),
           // ),
-      
+
           SizedBox(
             height: 15,
           ),
@@ -182,7 +179,7 @@ class AddVideoState extends State<AddVideo> {
                     } else {
                       url = controller.text;
                       videoId = YoutubePlayer.convertUrlToId(url);
-                      Crud().addVideoUrl(videoId, isLive/*showIcon*/);
+                      Crud().addVideoUrl(videoId, isLive /*showIcon*/);
                       controller.clear();
                       //Navigator.pop(context);
                       _scaffoldKey.currentState.showSnackBar(

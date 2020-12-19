@@ -9,7 +9,7 @@ import 'package:getflutter/getflutter.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
-import 'package:login/placedetailview.dart';
+import 'placedetailview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/places.dart';
