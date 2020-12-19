@@ -136,18 +136,17 @@ class _PremiumCodeState extends State<PremiumCode> {
               ),
             ),
             GFButton(
-              onPressed: () async{
+              onPressed: () async {
                 setState(() {
                   couppp = coup.text;
                 });
-                await checkprem(couppp);
-                addOnStart(data, pcheck);
 
+                checkprem(couppp);
+                addOnStart(data, pcheck);
               },
               text: "Verify",
               shape: GFButtonShape.pills,
               size: GFSize.LARGE,
-
             ),
             singleclick(),
             couponcheck(),
@@ -156,12 +155,17 @@ class _PremiumCodeState extends State<PremiumCode> {
       ),
     );
   }
+
   Widget singleclick() {
     if (pcheck == true) {
-      return  GFButton(
-        onPressed: () async{
-          if (pcheck == true) {
-
+      print("in singleclick");
+      return GFButton(
+        onPressed: () async {
+          Future.delayed(Duration.zero, () async {
+            checkprem(couppp);
+            addOnStart(data, pcheck);
+            if (pcheck == true) {
+              print("pcheck=true in singleclick");
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
@@ -171,27 +175,36 @@ class _PremiumCodeState extends State<PremiumCode> {
                   ),
                 ),
               );
-
-          }
+            }
+          });
         },
         text: "Visit App",
         shape: GFButtonShape.pills,
         size: GFSize.LARGE,
       );
-    }
-    else
-      return Container(width: 0.0,height: 0.0,);
+    } else
+      return Container(
+        width: 0.0,
+        height: 0.0,
+      );
   }
-
 
   Widget couponcheck() {
     if (pcheck == true) {
-      return Text("Coupon Verified",style: TextStyle(color: Colors.white),);
-    } else
-      return Text("Please enter a valid coupon code",style: TextStyle(color: Colors.red),);
+      return Text(
+        "Coupon Verified",
+        style: TextStyle(color: Colors.white),
+      );
+    } else {
+      print("In couponcheck");
+      return Text(
+        "Please enter a valid coupon code",
+        style: TextStyle(color: Colors.red),
+      );
+    }
   }
 
-  Future checkprem(String premcoupon) async{
+  Future checkprem(String premcoupon) async {
     final DocumentReference documentReference =
         Firestore.instance.collection('PremiumCoupons').document(premcoupon);
     subscription = documentReference.snapshots().listen((datasnapshot) {
@@ -199,10 +212,13 @@ class _PremiumCodeState extends State<PremiumCode> {
         setState(() {
           pcheck = true;
         });
-      } else if (!datasnapshot.exists) {
+        print("in checkprem pcheck=true");
+      }
+      if (!datasnapshot.exists) {
         setState(() {
           pcheck = false;
         });
+        print("in checkprem pcheck=false");
       }
     });
   }
