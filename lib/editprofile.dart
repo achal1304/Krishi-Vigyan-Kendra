@@ -157,7 +157,7 @@ class _EditProfileState extends State<EditProfile> {
 
   Future<dynamic> getUserProgress() async {
     final DocumentReference document =
-    Firestore.instance.collection("users").document(widget._user.uid);
+        Firestore.instance.collection("users").document(widget._user.uid);
 
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       setState(() {
@@ -299,10 +299,7 @@ class _EditProfileState extends State<EditProfile> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.02,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             StreamBuilder<DocumentSnapshot>(
                 stream: Firestore.instance
@@ -318,10 +315,7 @@ class _EditProfileState extends State<EditProfile> {
                     progressPercent = snapshot.data['progressPercent'];
                     return Container(
                       padding: EdgeInsets.only(
-                        left: MediaQuery
-                            .of(context)
-                            .size
-                            .width * 0.08,
+                        left: MediaQuery.of(context).size.width * 0.08,
                       ),
                       child: GFProgressBar(
                         percentage: progress < 1.0 ? progress : 1.0,
@@ -337,10 +331,7 @@ class _EditProfileState extends State<EditProfile> {
                         ),
                         backgroundColor: Colors.black26,
                         progressBarColor: Colors.blueAccent,
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width * 0.8,
+                        width: MediaQuery.of(context).size.width * 0.8,
                       ),
                     );
                   }
@@ -369,10 +360,7 @@ class _EditProfileState extends State<EditProfile> {
             //   ),
             // ),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.02,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Center(
               child: CircleAvatar(
@@ -381,10 +369,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
             ),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.02,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
@@ -396,13 +381,11 @@ class _EditProfileState extends State<EditProfile> {
                   hintText: data['Name'],
                   border: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: Colors.blueAccent, width: 32.0),
+                          BorderSide(color: Colors.blueAccent, width: 32.0),
                       borderRadius: BorderRadius.circular(25.0)),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
+                        color: Theme.of(context).scaffoldBackgroundColor,
                         width: 32.0),
                     borderRadius: BorderRadius.circular(25.0),
                   ),
@@ -410,10 +393,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
             ),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
@@ -426,13 +406,11 @@ class _EditProfileState extends State<EditProfile> {
                   hintText: data['Address'],
                   border: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: Colors.blueAccent, width: 32.0),
+                          BorderSide(color: Colors.blueAccent, width: 32.0),
                       borderRadius: BorderRadius.circular(25.0)),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
+                        color: Theme.of(context).scaffoldBackgroundColor,
                         width: 32.0),
                     borderRadius: BorderRadius.circular(25.0),
                   ),
@@ -456,14 +434,10 @@ class _EditProfileState extends State<EditProfile> {
                   });
 //                  _handlePressButton();
                 },
-
               ),
             ),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             //   DropdownButton<Item>(
             //     hint: Text("Gender"),
@@ -541,16 +515,15 @@ class _EditProfileState extends State<EditProfile> {
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                   prefixIcon: Icon(Icons.cake),
-                  hintText: "DOB :" + data['DOB'],
+                  // hintText: "DOB :" + data['DOB'],
+                  hintText: dob == "" ? "DOB :" + data['DOB'] : dob,
                   border: OutlineInputBorder(
                       borderSide:
-                      BorderSide(color: Colors.blueAccent, width: 32.0),
+                          BorderSide(color: Colors.blueAccent, width: 32.0),
                       borderRadius: BorderRadius.circular(25.0)),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Theme
-                            .of(context)
-                            .scaffoldBackgroundColor,
+                        color: Theme.of(context).scaffoldBackgroundColor,
                         width: 32.0),
                     borderRadius: BorderRadius.circular(25.0),
                   ),
@@ -558,10 +531,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
             ),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             if (data['Gender'] == null)
               Text("Gender :")
@@ -719,16 +689,10 @@ class _EditProfileState extends State<EditProfile> {
             //   ),
             // ),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width * 0.8,
+              width: MediaQuery.of(context).size.width * 0.8,
               child: GFButton(
                 onPressed: () {
                   uname = name.text;

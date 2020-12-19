@@ -137,13 +137,22 @@ class Crud {
       },
     );
   }
-  addCourseData(String title,String desc, String sdate,
-      String edate, String Type,String venue,
-      String url, DateTime sd,var arr,int paymentamount) async {
+
+  addCourseData(
+      String title,
+      String desc,
+      String sdate,
+      String edate,
+      String Type,
+      String venue,
+      String url,
+      DateTime sd,
+      var arr,
+      int paymentamount) async {
     DocumentReference documentRef =
-    Firestore.instance.collection("Courses").document(desc);
+        Firestore.instance.collection("Courses").document(desc);
     Firestore.instance.runTransaction(
-          (transaction) async {
+      (transaction) async {
         await documentRef.setData({
           'Course Title': title,
           'Course Description': desc,
@@ -160,16 +169,21 @@ class Crud {
       },
     );
   }
-  addRegistrationData(String desc,String em,String address,String contact,String name){
-    DocumentReference documentRef =
-    Firestore.instance.collection("Courses").document(desc).collection("Registration").document(em);
+
+  addRegistrationData(
+      String desc, String em, String address, String contact, String name) {
+    DocumentReference documentRef = Firestore.instance
+        .collection("Courses")
+        .document(desc)
+        .collection("Registration")
+        .document(em);
     Firestore.instance.runTransaction(
-          (transaction) async {
+      (transaction) async {
         await documentRef.setData({
-          'Username':name,
-          'Useremail':em,
-          'Contact No.':contact,
-          'Address':address
+          'Username': name,
+          'Useremail': em,
+          'Contact No.': contact,
+          'Address': address
         });
         print("Registration Data added!");
       },
@@ -252,16 +266,13 @@ class Crud {
       // print("subscribedT1Date Updated");
     });
   }
-  addFeedBack(String emailID,String fb)async{
+
+  addFeedBack(String emailID, String fb) async {
     DocumentReference documentRef =
-    Firestore.instance.collection("Feedbacks").document(emailID);
-    Firestore.instance.runTransaction(
-            (transaction) async {
-              await documentRef.setData({
-                'EmailID':emailID,
-                'Feedback':fb
-              });
-            });
+        Firestore.instance.collection("Feedbacks").document(emailID);
+    Firestore.instance.runTransaction((transaction) async {
+      await documentRef.setData({'EmailID': emailID, 'Feedback': fb});
+    });
   }
 
   editEventData(String topic,
@@ -286,17 +297,19 @@ class Crud {
       },
     );
   }
+
   deleteCourseData(String desc) {
     DocumentReference documentRef =
-    Firestore.instance.collection("Courses").document(desc);
+        Firestore.instance.collection("Courses").document(desc);
 
     Firestore.instance.runTransaction(
-          (transaction) async {
+      (transaction) async {
         await documentRef.delete();
         print("Course Data deleted!");
       },
     );
   }
+
   deleteData(String desc) {
     DocumentReference documentRef =
         Firestore.instance.collection("notifications").document(desc);
@@ -305,6 +318,18 @@ class Crud {
       (transaction) async {
         await documentRef.delete();
         print("Notification Data deleted!");
+      },
+    );
+  }
+
+  deleteCouponData(String desc) {
+    DocumentReference documentRef =
+        Firestore.instance.collection("PremiumCoupons").document(desc);
+
+    Firestore.instance.runTransaction(
+      (transaction) async {
+        await documentRef.delete();
+        print("Coupon Data deleted!");
       },
     );
   }
@@ -346,19 +371,23 @@ class Crud {
       print("Name Updated");
     });
   }
+
   updateCouponsAvail(FirebaseUser user, int couponsavail) async {
     DocumentReference documentRef =
-    Firestore.instance.collection("users").document(user.uid);
+        Firestore.instance.collection("users").document(user.uid);
     Firestore.instance.runTransaction((transaction) async {
-      await documentRef.updateData({
-        'FoodCoupons': couponsavail
-      });
+      await documentRef.updateData({'FoodCoupons': couponsavail});
       print("Name Updated");
     });
   }
-  addFoodCoupons(FirebaseUser user, int breakfast, int lunch,int dinner,String date) async {
-    DocumentReference documentRef =
-    Firestore.instance.collection("users").document(user.uid).collection("Food Coupons").document(date);
+
+  addFoodCoupons(FirebaseUser user, int breakfast, int lunch, int dinner,
+      String date) async {
+    DocumentReference documentRef = Firestore.instance
+        .collection("users")
+        .document(user.uid)
+        .collection("Food Coupons")
+        .document(date);
     Firestore.instance.runTransaction((transaction) async {
       await documentRef.setData({
         'Date': date,
@@ -393,7 +422,6 @@ class Crud {
     });
   }
 
-
   updateDOB(FirebaseUser user, String dob, DateTime birthday) async {
     DocumentReference documentRef =
         Firestore.instance.collection("users").document(user.uid);
@@ -418,9 +446,10 @@ class Crud {
       print("Array Updated");
     });
   }
+
   updateArr1(String desc, var arr) async {
     DocumentReference documentRef =
-    Firestore.instance.collection("Courses").document(desc);
+        Firestore.instance.collection("Courses").document(desc);
     Firestore.instance.runTransaction((transaction) async {
       await documentRef.setData({
         'ARR': arr,

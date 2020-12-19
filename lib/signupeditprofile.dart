@@ -15,7 +15,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 
-
 import 'crud.dart';
 import 'normalusers.dart';
 import 'premium.dart';
@@ -270,6 +269,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
 
     super.initState();
   }
+
   void onError(PlacesAutocompleteResponse response) {
     _scaffoldKey.currentState.showSnackBar(
       SnackBar(content: Text(response.errorMessage)),
@@ -514,7 +514,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                   prefixIcon: Icon(Icons.cake),
-                  hintText: "DOB :" + data['DOB'],
+                  hintText: dob == "" ? 'DOB: dd/mm/yyyy' : dob,
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blueAccent, width: 32.0),
@@ -753,7 +753,13 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                   ),
                 );
               },
-              child: new Text("Go to dashboard",style: TextStyle(fontStyle: FontStyle.italic,decoration: TextDecoration.underline,color: Colors.blue),),
+              child: new Text(
+                "Go to dashboard",
+                style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    decoration: TextDecoration.underline,
+                    color: Colors.blue),
+              ),
             ),
           ],
         ),

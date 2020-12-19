@@ -24,6 +24,7 @@ class _FeedBackState extends State<FeedBack> {
   AsyncSnapshot<DocumentSnapshot> snapshot;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController _textController = TextEditingController();
+  bool _isEnabled = true;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +67,7 @@ class _FeedBackState extends State<FeedBack> {
               child: SingleChildScrollView(
                 child: TextField(
                   controller: _textController,
+                  enabled: _isEnabled,
                   decoration:
                       InputDecoration(hintText: "Enter your feedback here"),
                   maxLines: null,
@@ -83,6 +85,9 @@ class _FeedBackState extends State<FeedBack> {
                   fb = _textController.text;
                   if (fb != "") {
                     await Crud().addFeedBack(widget._user.email, fb);
+                    setState(() {
+                      _isEnabled = false;
+                    });
                     _scaffoldKey.currentState.showSnackBar(
                       SnackBar(
                         content: Text('Thank You for your feedback'),

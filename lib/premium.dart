@@ -148,7 +148,7 @@ class _PremiumCodeState extends State<PremiumCode> {
               shape: GFButtonShape.pills,
               size: GFSize.LARGE,
             ),
-            singleclick(),
+            singleclick(couppp),
             couponcheck(),
           ],
         ),
@@ -156,7 +156,7 @@ class _PremiumCodeState extends State<PremiumCode> {
     );
   }
 
-  Widget singleclick() {
+  Widget singleclick(String pc) {
     if (pcheck == true) {
       print("in singleclick");
       return GFButton(
@@ -165,6 +165,7 @@ class _PremiumCodeState extends State<PremiumCode> {
             checkprem(couppp);
             addOnStart(data, pcheck);
             if (pcheck == true) {
+              Crud().deleteCouponData(pc);
               print("pcheck=true in singleclick");
               Navigator.pushReplacement(
                 context,
