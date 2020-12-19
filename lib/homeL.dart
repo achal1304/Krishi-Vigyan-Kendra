@@ -170,7 +170,7 @@ class _HomePageLState extends State<HomePageL> {
     }
     if (snapshot.data['admin'] == true) {
       return adminPage(snapshot);
-    } else {
+    } else if (snapshot.data["premium"] == true) {
       return userPage(snapshot);
     }
   }
@@ -293,6 +293,7 @@ class _HomePageLState extends State<HomePageL> {
       y = newdate.year;
 
     print(y);
+    print("in user page");
 
     DateTime finaldate =
         new DateTime(y, olddate.month, olddate.day, newHr, newMin, newSec);
@@ -403,10 +404,6 @@ class _HomePageLState extends State<HomePageL> {
     );
   }
 
-  // void showNotification(DateTime finaldate) async {
-  //   await _showNotification(finaldate);
-  // }
-
   Future<void> _showNotification(DateTime finaldate, String nameuser) async {
     var scheduledNotificationDateTime = finaldate;
 
@@ -433,55 +430,4 @@ PUNE'''));
       platformChannelSpecifics,
     );
   }
-
-  // Widget adminPage(DocumentSnapshot snapshot) {
-  //   return Center(
-  //     child: ButtonTheme(
-  //       minWidth: 300,
-  //       child: OutlineButton(
-  //         padding: EdgeInsets.symmetric(vertical: 15),
-  //         borderSide: BorderSide(color: Colors.white),
-  //         shape: StadiumBorder(),
-  //         textColor: Colors.white,
-  //         onPressed: () {
-  //           Navigator.push(
-  //             context,
-  //             MaterialPageRoute(
-  //               builder: (context) => AdminPage(
-  //                 widget._user,
-  //                 widget._googleSignIn,
-  //               ),
-  //             ),
-  //           );
-  //         },
-  //         child: Text('Go to Admin\'s Dashboard'),
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // Widget userPage(DocumentSnapshot snapshot) {
-  //   return Center(
-  //     child: ButtonTheme(
-  //       minWidth: 300,
-  //       child: OutlineButton(
-  //         padding: EdgeInsets.symmetric(vertical: 15),
-  //         borderSide: BorderSide(color: Colors.white),
-  //         shape: StadiumBorder(),
-  //         textColor: Colors.white,
-  //         color: Colors.orangeAccent,
-  //         onPressed: () {
-  //           Navigator.push(
-  //               context,
-  //               MaterialPageRoute(
-  //                   builder: (context) => NormalUsers(
-  //                         widget._user,
-  //                         widget._googleSignIn,
-  //                       )));
-  //         },
-  //         child: Text('Go to Dashboard'),
-  //       ),
-  //     ),
-  //   );
-  // }
 }
