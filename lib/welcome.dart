@@ -9,6 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'crud.dart';
 import 'homeL.dart';
 import 'premium.dart';
+import 'signup.dart';
 
 class Welcome extends StatefulWidget {
   FirebaseUser _user;

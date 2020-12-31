@@ -233,7 +233,7 @@ class Uploader extends StatefulWidget {
 class _UploaderState extends State<Uploader> {
   File sampleImage;
   final FirebaseStorage _storage =
-      FirebaseStorage(storageBucket: 'gs://login-demo-8c251.appspot.com');
+      FirebaseStorage(storageBucket: 'gs://kvk-iskcon.appspot.com');
 
   StorageUploadTask _uploadTask;
 

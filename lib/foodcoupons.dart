@@ -36,6 +36,7 @@ class _FoodCouponState extends State<FoodCoupon> {
   int prevbreak = 0;
   int prevlunch = 0;
   int prevdinn = 0;
+  int ca;
   DateTime daynow = DateTime.now().add((Duration(days: 3)));
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -51,6 +52,7 @@ class _FoodCouponState extends State<FoodCoupon> {
       setState(() {
         data = snapshot.data;
         couponsavail = data['FoodCoupons'];
+        ca = couponsavail;
       });
     });
   }
@@ -253,7 +255,68 @@ class _FoodCouponState extends State<FoodCoupon> {
                       _currentCount + prevlunch,
                       _currentCountDinn + prevdinn,
                       dob);
+
+                  // DocumentReference documentref = Firestore.instance
+                  //     .collection("users")
+                  //     .document(widget._user.uid);
+
+                  // await documentref
+                  //     .get()
+                  //     .then<dynamic>((DocumentSnapshot snapshot) async {
+                  //   setState(() {
+                  //     ca = data['FoodCoupons'];
+                  //   });
+                  // });
+
+                  // setState(() {
+                  //   couponsavail = ca -
+                  //       _currentCountBrake -
+                  //       _currentCount -
+                  //       _currentCountDinn;
+                  // });
                   await Crud().updateCouponsAvail(widget._user, couponsavail);
+
+                  DocumentReference df = Firestore.instance
+                      .collection('FoodCouponsAdmin')
+                      .document(dob);
+
+                  df.get().then((docSnapshot) => {
+                        if (!docSnapshot.exists)
+                          {
+                            df.setData({
+                              "$dob": {
+                                "${widget._user.displayName}":
+                                    _currentCountBrake +
+                                        prevbreak +
+                                        _currentCount +
+                                        prevlunch +
+                                        _currentCountDinn +
+                                        prevdinn,
+                              }
+                            })
+                          }
+                        else
+                          {
+                            df.updateData({
+                              "$dob.${widget._user.displayName}":
+                                  _currentCountBrake +
+                                      prevbreak +
+                                      _currentCount +
+                                      prevlunch +
+                                      _currentCountDinn +
+                                      prevdinn,
+                            })
+                          }
+                      });
+
+                  // await df.setData({
+                  //   "$dob.${widget._user.email}": _currentCountBrake +
+                  //       prevbreak +
+                  //       _currentCount +
+                  //       prevlunch +
+                  //       _currentCountDinn +
+                  //       prevdinn,
+                  // });
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
                       content: Text('Coupons Booked'),
@@ -278,6 +341,11 @@ class _FoodCouponState extends State<FoodCoupon> {
                     ),
                   );
                 }
+                setState(() {
+                  _currentCount = 0;
+                  _currentCountBrake = 0;
+                  _currentCountDinn = 0;
+                });
               },
               text: "Book Coupons",
               shape: GFButtonShape.pills,

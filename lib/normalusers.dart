@@ -18,7 +18,7 @@ import 'viewcourses.dart';
 import 'viewvideo.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'feedback.dart';
-// import 'picker.dart';
+// import 'package:login/picker.dart';
 
 // import 'addevent.dart';
 import 'aboutus.dart';
@@ -244,7 +244,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.podcast,
                 size: 28.0,
               ),
-              title: Text('View Audio'),
+              title: Text('Hear Audios'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -280,7 +280,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.bookOpen,
                 size: 28.0,
               ),
-              title: Text('View Courses'),
+              title: Text('Join Courses'),
               onTap: () {
                 Navigator.push(
                   context,

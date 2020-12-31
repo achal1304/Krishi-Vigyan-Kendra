@@ -130,13 +130,13 @@ class _SignupState extends State<Signup> {
               builder: (context) => ExistanceCheck(),
             ));
       } else {
-        Crud().getData().then((val) {
-          if (val.documents.length > 0) {
-            print(val.documents[user.uid].data["admin"]);
-          } else {
-            print("Not Found");
-          }
-        });
+        // Crud().getData().then((val) {
+        //   if (val.documents.length > 0) {
+        //     print(val.documents[user.uid].data["admin"]);
+        //   } else {
+        //     print("Not Found");
+        //   }
+        // });
         Navigator.push(
           context,
           MaterialPageRoute(
