@@ -191,7 +191,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
                         Text(
-                          "Starts in",
+                          "मध्ये सुरू होते",
                           textAlign: TextAlign.right,
                           style: TextStyle(
                             fontSize: 20.0,
@@ -201,7 +201,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                           ),
                         ),
                         Text(
-                          widget.startdatetimestamp + " Days",
+                          widget.startdatetimestamp + " दिवस",
                           textAlign: TextAlign.right,
                           style: TextStyle(
                             fontSize: 20.0,
@@ -357,7 +357,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       Text(
-                        "Starts in",
+                        "मध्ये सुरू होते",
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           fontSize: 20.0,
@@ -367,7 +367,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                         ),
                       ),
                       Text(
-                        widget.startdatetimestamp + " Days",
+                        widget.startdatetimestamp + "दिवस",
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           fontSize: 20.0,
@@ -437,7 +437,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                             decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              hintText: "Course Title",
+                              hintText: "कोर्स शीर्षक",
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: Colors.blueAccent, width: 32.0),
@@ -452,7 +452,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                             ),
                             validator: (title) {
                               if (title.isEmpty) {
-                                return 'Please enter some title';
+                                return 'कृपया काही शीर्षक प्रविष्ट करा';
                               }
                               return null;
                             },
@@ -469,7 +469,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                             decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              hintText: "Course description",
+                              hintText: "अभ्यासक्रम वर्णन",
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: Colors.blueAccent, width: 32.0),
@@ -484,7 +484,7 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                             ),
                             validator: (description) {
                               if (description.isEmpty) {
-                                return 'Please enter some description';
+                                return 'कृपया काही वर्णन प्रविष्ट करा';
                               }
                               return null;
                             },
@@ -525,8 +525,10 @@ class _CustomCardCoursesState extends State<CustomCardCourses> {
                             decoration: InputDecoration(
                               contentPadding:
                                   EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              hintText: '''Start date : $sdate
-End date : $edate''',
+                              hintText: '''प्रारंभ तारीख: $sdate
+
+
+शेवटची तारीख : $edate''',
                               hintMaxLines: 2,
                               border: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -542,7 +544,7 @@ End date : $edate''',
                             ),
                             validator: (_startdate) {
                               if (sdate.isEmpty && edate.isEmpty) {
-                                return 'Please select dates';
+                                return 'कृपया तारखा निवडा';
                               }
                               return null;
                             },
@@ -567,7 +569,7 @@ End date : $edate''',
                                   },
                                 ),
                                 Text(
-                                  'Online',
+                                  'ऑनलाईन',
                                   style: new TextStyle(fontSize: 17.0),
                                 ),
                                 Radio(
@@ -581,7 +583,7 @@ End date : $edate''',
                                   },
                                 ),
                                 Text(
-                                  'Offline',
+                                  'ऑफलाइन',
                                   style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
@@ -610,7 +612,7 @@ End date : $edate''',
                                   },
                                 ),
                                 Text(
-                                  'Free',
+                                  'फुकट',
                                   style: new TextStyle(fontSize: 17.0),
                                 ),
                                 Radio(
@@ -624,7 +626,7 @@ End date : $edate''',
                                   },
                                 ),
                                 Text(
-                                  'Paid',
+                                  'पैसे दिले',
                                   style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
@@ -642,7 +644,7 @@ End date : $edate''',
                           child: CupertinoButton(
                             //elevation: 7.0,
                             child: Text(
-                              'Upload Image',
+                              'प्रतिमा अपलोड करा',
                               style: TextStyle(fontSize: 14),
                             ),
                             //textColor: Colors.white,
@@ -667,12 +669,12 @@ End date : $edate''',
                           child: Column(
                             children: <Widget>[
                               Text(
-                                "Registration Form : ",
+                                "नोंदणी पत्रक :",
                                 textAlign: TextAlign.left,
                               ),
                               MergeSemantics(
                                 child: ListTile(
-                                  title: Text('Name'),
+                                  title: Text('नाव'),
                                   trailing: CupertinoSwitch(
                                       activeColor: Colors.blue,
                                       value: value1,
@@ -691,7 +693,7 @@ End date : $edate''',
                               ),
                               MergeSemantics(
                                 child: ListTile(
-                                  title: Text('Address'),
+                                  title: Text('पत्ता'),
                                   trailing: CupertinoSwitch(
                                       activeColor: Colors.blue,
                                       value: value2,
@@ -710,7 +712,7 @@ End date : $edate''',
                               ),
                               MergeSemantics(
                                 child: ListTile(
-                                  title: Text('Contact No.'),
+                                  title: Text('संपर्क क्रमांक'),
                                   trailing: CupertinoSwitch(
                                       activeColor: Colors.blue,
                                       value: value3,
@@ -814,7 +816,7 @@ End date : $edate''',
 //                                );
                               } //Navigator.pop(context);
                             },
-                            text: "Edit Course",
+                            text: "कोर्स संपादित करा",
                             shape: GFButtonShape.pills,
                             size: GFSize.LARGE,
                           ),
@@ -847,7 +849,7 @@ End date : $edate''',
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Text(
-                      "Delete the course?",
+                      "कोर्स हटवायचा?",
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -859,7 +861,7 @@ End date : $edate''',
                       children: <Widget>[
                         FlatButton(
                           child: Text(
-                            'No',
+                            'नाही',
                             style: TextStyle(
                                 color: Colors.red.shade400, fontSize: 15),
                           ),
@@ -870,7 +872,7 @@ End date : $edate''',
                         VerticalDivider(),
                         FlatButton(
                           child: Text(
-                            'Yes',
+                            'होय',
                             style: TextStyle(color: Colors.blue, fontSize: 15),
                           ),
                           onPressed: () {
@@ -901,7 +903,7 @@ End date : $edate''',
               width: 5,
             ),
             Text(
-              "Online Event",
+              "ऑनलाइन कार्यक्रम",
               style: TextStyle(
                 fontSize: 16.0,
                 color: Color(0xFF000000),
@@ -952,7 +954,7 @@ End date : $edate''',
           maxLines: null,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Venue for the event",
+            hintText: "कार्यक्रमाचे ठिकाण",
             border: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                 borderRadius: BorderRadius.circular(25.0)),
@@ -965,7 +967,7 @@ End date : $edate''',
           ),
           validator: (offlineevent) {
             if (offlineevent.isEmpty) {
-              return 'Please add venue';
+              return 'कृपया ठिकाण जोडा';
             }
             return null;
           },
@@ -987,7 +989,7 @@ End date : $edate''',
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Enter ticket amoount",
+            hintText: "तिकिट रक्कम प्रविष्ट करा",
             border: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                 borderRadius: BorderRadius.circular(25.0)),
@@ -1050,7 +1052,7 @@ End date : $edate''',
     if (imgUrl == "") {
       return Padding(
           padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
-          child: Text("Please select an Image"));
+          child: Text("कृपया एक प्रतिमा निवडा"));
     } else
       return Padding(
           padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),

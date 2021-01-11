@@ -51,10 +51,10 @@ class _SubscriptionsState extends State<Subscriptions> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       prefs.setBool('counter1', value1);
-      Crud().updateT1(user,value1);
-      Timestamp dateT1 =new Timestamp.now();
-     // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
-      Crud().updateT1Date(user,dateT1);
+      Crud().updateT1(user, value1);
+      Timestamp dateT1 = new Timestamp.now();
+      // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
+      Crud().updateT1Date(user, dateT1);
     });
   }
 
@@ -62,21 +62,21 @@ class _SubscriptionsState extends State<Subscriptions> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       prefs.setBool('counter2', value2);
-      Crud().updateT2(user,value2);
-      Timestamp dateT2 =new Timestamp.now();
-     // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
-      Crud().updateT2Date(user,dateT2);
+      Crud().updateT2(user, value2);
+      Timestamp dateT2 = new Timestamp.now();
+      // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
+      Crud().updateT2Date(user, dateT2);
     });
   }
 
-   _savenswitchValue3() async {
+  _savenswitchValue3() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       prefs.setBool('counter3', value3);
-      Crud().updateT3(user,value3);
-      Timestamp dateT3 =new Timestamp.now();
-     // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
-      Crud().updateT3Date(user,dateT3);
+      Crud().updateT3(user, value3);
+      Timestamp dateT3 = new Timestamp.now();
+      // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
+      Crud().updateT3Date(user, dateT3);
     });
   }
 
@@ -84,16 +84,16 @@ class _SubscriptionsState extends State<Subscriptions> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       prefs.setBool('counter4', value4);
-      Crud().updateT4(user,value4);
-      Timestamp dateT4 =new Timestamp.now();
-     // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
-      Crud().updateT4Date(user,dateT4);
+      Crud().updateT4(user, value4);
+      Timestamp dateT4 = new Timestamp.now();
+      // String formatteddateT1 = '${dateT1.day} / ${dateT1.month} / ${dateT1.year}';
+      Crud().updateT4Date(user, dateT4);
     });
   }
 
   @override
   void initState() {
-     getUser().then((FirebaseUser usr) {
+    getUser().then((FirebaseUser usr) {
       setState(() {
         user = usr;
       });
@@ -108,7 +108,7 @@ class _SubscriptionsState extends State<Subscriptions> {
       key: sk,
       appBar: AppBar(
         title: Text(
-          'Subscriptions',
+          'सदस्यता',
           style: TextStyle(color: Colors.black),
           //textScaleFactor: 1.2,
         ),
@@ -387,7 +387,7 @@ class _SubscriptionsState extends State<Subscriptions> {
 
           MergeSemantics(
             child: ListTile(
-              title: Text('Topic 1'),
+              title: Text('विषय 1'),
               trailing: CupertinoSwitch(
                 activeColor: Colors.blue,
                 value: value1,
@@ -412,7 +412,7 @@ class _SubscriptionsState extends State<Subscriptions> {
 
           MergeSemantics(
             child: ListTile(
-              title: Text('Topic 2'),
+              title: Text('विषय 2'),
               trailing: CupertinoSwitch(
                 activeColor: Colors.blue,
                 value: value2,
@@ -438,7 +438,7 @@ class _SubscriptionsState extends State<Subscriptions> {
 
           MergeSemantics(
             child: ListTile(
-              title: Text('Topic 3'),
+              title: Text('विषय 3'),
               trailing: CupertinoSwitch(
                 activeColor: Colors.blue,
                 value: value3,
@@ -464,7 +464,7 @@ class _SubscriptionsState extends State<Subscriptions> {
 
           MergeSemantics(
             child: ListTile(
-              title: Text('Topic 4'),
+              title: Text('विषय 4'),
               trailing: CupertinoSwitch(
                 activeColor: Colors.blue,
                 value: value4,

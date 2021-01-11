@@ -83,7 +83,7 @@ class _HomePageLState extends State<HomePageL> {
             height: 15,
           ),
           Text(
-            'Welcome ${widget._user.displayName}!',
+            'स्वागत आहेs ${widget._user.displayName}!',
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -122,7 +122,7 @@ class _HomePageLState extends State<HomePageL> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Looks like you haven\'t registered yet!',
+                  'असे दिसते आहे की आपण अद्याप नोंदणीकृत केलेले नाही!',
                   style: TextStyle(
                     decoration: TextDecoration.none,
                     fontSize: 15,
@@ -135,7 +135,7 @@ class _HomePageLState extends State<HomePageL> {
               height: 10,
             ),
             Text(
-              'Please Register first!',
+              'कृपया प्रथम नोंदणी करा!s',
               style: TextStyle(
                 decoration: TextDecoration.none,
                 fontSize: 15,
@@ -159,7 +159,7 @@ class _HomePageLState extends State<HomePageL> {
                         fullscreenDialog: true,
                       ));
                 },
-                child: Text('Go to Registration Page'),
+                child: Text('नोंदणी पृष्ठावर जा'),
 
                 //child: Text('Google Sign-up'),
               ),
@@ -191,7 +191,7 @@ class _HomePageLState extends State<HomePageL> {
     return Container(
         child: Center(
             child: Text(
-      "Welcome to ISKCON PUNE",
+      "इस्कॉन पुणे मध्ये आपले स्वागत आहे",
       style: TextStyle(
           decoration: TextDecoration.none,
           color: Colors.white,
@@ -320,7 +320,7 @@ class _HomePageLState extends State<HomePageL> {
     return Container(
         child: Center(
             child: Text(
-      "Welcome to ISKCON PUNE",
+      "इस्कॉन पुणे मध्ये आपले स्वागत आहे",
       style: TextStyle(
           decoration: TextDecoration.none,
           color: Colors.white,
@@ -388,7 +388,7 @@ class _HomePageLState extends State<HomePageL> {
         actions: [
           CupertinoDialogAction(
             isDefaultAction: true,
-            child: Text('Ok'),
+            child: Text('ठीक आहे'),
             onPressed: () async {
               Navigator.of(context, rootNavigator: true).pop();
               await Navigator.push(

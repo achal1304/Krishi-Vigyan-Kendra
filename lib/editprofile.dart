@@ -279,7 +279,7 @@ class _EditProfileState extends State<EditProfile> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Edit Profile',
+          'प्रोफाईल संपादित करा',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),
@@ -309,7 +309,7 @@ class _EditProfileState extends State<EditProfile> {
                 builder: (BuildContext context,
                     AsyncSnapshot<DocumentSnapshot> snapshot) {
                   if (snapshot.hasError) {
-                    return Text('Error : ${snapshot.error}');
+                    return Text('त्रुटी: ${snapshot.error}');
                   } else if (snapshot.hasData) {
                     progress = snapshot.data['progress'];
                     progressPercent = snapshot.data['progressPercent'];
@@ -534,9 +534,9 @@ class _EditProfileState extends State<EditProfile> {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             if (data['Gender'] == null)
-              Text("Gender :")
+              Text("लिंग:")
             else
-              Text("Gender : " + data['Gender']),
+              Text("लिंग: " + data['Gender']),
             Column(
               children: <Widget>[
                 // Padding(
@@ -557,7 +557,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                     ),
                     Text(
-                      'Male',
+                      'नर',
                       style: new TextStyle(fontSize: 17.0),
                     ),
                     Radio(
@@ -571,7 +571,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                     ),
                     Text(
-                      'Female',
+                      'स्त्री',
                       style: new TextStyle(
                         fontSize: 17.0,
                       ),
@@ -587,7 +587,7 @@ class _EditProfileState extends State<EditProfile> {
                       },
                     ),
                     Text(
-                      'Other',
+                      'इतर',
                       style: new TextStyle(fontSize: 17.0),
                     ),
                   ],
@@ -716,13 +716,13 @@ class _EditProfileState extends State<EditProfile> {
                   // }
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
-                      content: Text('Profile Updated!'),
+                      content: Text('प्रोफाइल अद्यतनित केले!'),
                       duration: Duration(seconds: 3),
                     ),
                   );
                   //Navigator.pop(context);
                 },
-                text: "Update Profile",
+                text: "प्रोफाइल अद्यतनित करा",
                 shape: GFButtonShape.pills,
                 size: GFSize.LARGE,
               ),

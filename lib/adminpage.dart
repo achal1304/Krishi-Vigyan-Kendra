@@ -147,24 +147,24 @@ class _AdminPageState extends State<AdminPage> {
                               TextFormField(
                                 autofocus: true,
                                 decoration: InputDecoration(
-                                  hintText: 'Title',
+                                  hintText: 'शीर्षक',
                                 ),
                                 controller: taskTitleInputController,
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Title cannot be empty!';
+                                    return 'शीर्षक रिक्त असू शकत नाही!';
                                   }
                                   return null;
                                 },
                               ),
                               TextFormField(
                                 decoration: InputDecoration(
-                                  hintText: 'Body',
+                                  hintText: 'शरीर',
                                 ),
                                 controller: taskDescripInputController,
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Body cannot be empty!';
+                                    return 'शरीर रिक्त असू शकत नाही!';
                                   }
                                   return null;
                                 },
@@ -184,13 +184,13 @@ class _AdminPageState extends State<AdminPage> {
                               // ),
                               TextFormField(
                                 decoration: InputDecoration(
-                                  hintText: 'Description',
+                                  hintText: 'वर्णन',
                                 ),
                                 controller: descInputController,
                                 maxLines: null,
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Description cannot be empty!';
+                                    return 'वर्णन रिक्त असू शकत नाही!';
                                   }
                                   return null;
                                 },
@@ -201,7 +201,7 @@ class _AdminPageState extends State<AdminPage> {
 
                               CupertinoButton(
                                 //elevation: 7.0,
-                                child: Text('Upload Image'),
+                                child: Text('प्रतिमा अपलोड करा'),
                                 //textColor: Colors.white,
                                 color: Colors.blue,
                                 onPressed: () {
@@ -324,7 +324,7 @@ class _AdminPageState extends State<AdminPage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  Text('Date: '),
+                                  Text('तारीख:'),
                                   FlatButton(
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -402,7 +402,7 @@ class _AdminPageState extends State<AdminPage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  Text('Time: '),
+                                  Text('वेळः '),
                                   FlatButton(
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -483,7 +483,7 @@ class _AdminPageState extends State<AdminPage> {
                                 children: <Widget>[
                                   FlatButton(
                                       child: Text(
-                                        'Cancel',
+                                        'रद्द करा',
                                         style: TextStyle(
                                             color: Colors.red.shade400,
                                             fontSize: 15),
@@ -495,7 +495,7 @@ class _AdminPageState extends State<AdminPage> {
                                       }),
                                   FlatButton(
                                       child: Text(
-                                        'Add',
+                                        'जोडा',
                                         style: TextStyle(
                                             color: Colors.blue, fontSize: 15),
                                       ),
@@ -617,7 +617,7 @@ class _AdminPageState extends State<AdminPage> {
           title: Padding(
             padding: const EdgeInsets.only(top: 34),
             child: Text(
-              'Hare Krishna!',
+              'हरे कृष्ण!',
               textScaleFactor: 1.7,
               style: GoogleFonts.courgette(
                 textStyle: TextStyle(color: Colors.black),
@@ -634,7 +634,7 @@ class _AdminPageState extends State<AdminPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Welcome ${widget._user.displayName}'),
+                  Text('स्वागत आहे ${widget._user.displayName}'),
                   CircleAvatar(
                     backgroundImage: NetworkImage(widget._user.photoUrl),
                   )
@@ -647,7 +647,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.userPlus,
               size: 23.0,
             ),
-            title: Text('Add New Admin'),
+            title: Text('नवीन प्रशासन जोडा'),
             onTap: () {
               Navigator.push(
                 context,
@@ -668,7 +668,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.prayingHands,
               size: 23.0,
             ),
-            title: Text('View Daily Darshan'),
+            title: Text('दररोज दर्शन घ्या'),
             onTap: () {
               Navigator.push(
                 context,
@@ -686,7 +686,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.cloudUploadAlt,
               size: 23.0,
             ),
-            title: Text('Upload Daily Darshan'),
+            title: Text('दररोज दर्शन अपलोड करा'),
             onTap: () {
               Navigator.push(
                 context,
@@ -704,7 +704,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.podcast,
               size: 28.0,
             ),
-            title: Text('Hear Audios'),
+            title: Text('ऑडिओ ऐका'),
             onTap: () {
               Navigator.push(
                 context,
@@ -723,7 +723,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.microphoneAlt,
               size: 28.0,
             ),
-            title: Text('Upload Audio'),
+            title: Text('ऑडिओ अपलोड करा'),
             onTap: () {
               Navigator.push(
                 context,
@@ -741,7 +741,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.book,
               size: 28.0,
             ),
-            title: Text('Add Course'),
+            title: Text('कोर्स जोडा'),
             onTap: () {
               Navigator.push(
                 context,
@@ -759,7 +759,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.bookOpen,
               size: 28.0,
             ),
-            title: Text('Join Courses'),
+            title: Text('अभ्यासक्रमांमध्ये सामील व्हा'),
             onTap: () {
               Navigator.push(
                 context,
@@ -788,7 +788,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.youtube,
               size: 23.0,
             ),
-            title: Text('Add Video'),
+            title: Text('व्हिडिओ जोडा'),
           ),
           ListTile(
             onTap: () {
@@ -805,7 +805,7 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.video,
               size: 23.0,
             ),
-            title: Text('Latest Video'),
+            title: Text('नवीनतम व्हिडिओ'),
           ),
           Divider(
             thickness: 0.5,
@@ -826,14 +826,14 @@ class _AdminPageState extends State<AdminPage> {
               FontAwesomeIcons.video,
               size: 23.0,
             ),
-            title: Text('Feedbacks'),
+            title: Text('अभिप्राय'),
           ),
           ListTile(
             leading: FaIcon(
               FontAwesomeIcons.signOutAlt,
               size: 23.0,
             ),
-            title: Text('Logout'),
+            title: Text('बाहेर पडणे'),
             onTap: () {
               widget._googleSignIn.signOut();
               Navigator.popUntil(
@@ -860,7 +860,7 @@ class _AdminPageState extends State<AdminPage> {
               if (snapshot.hasError) return Text('Error: ${snapshot.error}');
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
-                  return Text('Loading...');
+                  return Text('लोड करीत आहे ...');
                 default:
                   return ListView(
                     children: snapshot.data.documents

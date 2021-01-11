@@ -88,7 +88,7 @@ class _VideosPageState extends State<VideosPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Latest Videos',
+          'नवीनतम व्हिडिओ',
           
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,

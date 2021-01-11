@@ -85,7 +85,7 @@ class _DemoState extends State<Demo> {
         //backgroundColor: Colors.orangeAccent,
         centerTitle: true,
         title: Text(
-          'Daily Darshan',
+          'दररोज दर्शन',
           style: TextStyle(color: Colors.black),
         ),
 
@@ -183,7 +183,7 @@ class _DemoState extends State<Demo> {
     } else if (p == 'dne')
       return Center(
         child: Text(
-          'No Images Found!',
+          'कोणत्याही प्रतिमा आढळल्या नाहीत!',
           style: TextStyle(fontSize: 20),
         ),
       );

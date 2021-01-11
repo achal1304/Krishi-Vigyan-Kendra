@@ -85,7 +85,7 @@ class _DonateState extends State<Donate> {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              'Donation',
+              'देणगी',
               style: TextStyle(color: Colors.black),
               textScaleFactor: 1.2,
             ),
@@ -115,7 +115,7 @@ class _DonateState extends State<Donate> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'ISKCONPUNE.28191248@hdfcbank',
-                            labelText: 'Receiving UPI Address',
+                            labelText: 'यूपीआय पत्ता प्राप्त करीत आहे',
                           ),
                         ),
                       ),
@@ -155,7 +155,7 @@ class _DonateState extends State<Donate> {
                           // enabled: false,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Amount',
+                            labelText: 'रक्कम',
                           ),
                         ),
                       ),
@@ -185,7 +185,7 @@ class _DonateState extends State<Donate> {
                       Container(
                         margin: EdgeInsets.only(bottom: 12),
                         child: Text(
-                          'Pay Using',
+                          'पे वापरणे',
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ),
@@ -242,9 +242,10 @@ class _DonateState extends State<Donate> {
           )),
     );
   }
+
   String _validateUpiAmount(String value) {
     if (value.isEmpty) {
-      return 'UPI Amount is required.';
+      return 'यूपीआय रक्कम आवश्यक आहे.';
     }
     return null;
   }
@@ -252,13 +253,12 @@ class _DonateState extends State<Donate> {
 
 String _validateUpiAddress(String value) {
   if (value.isEmpty) {
-    return 'UPI Address is required.';
+    return 'यूपीआय पत्ता आवश्यक आहे.';
   }
 
   if (!UpiPay.checkIfUpiAddressIsValid(value)) {
-    return 'UPI Address is invalid.';
+    return 'यूपीआय पत्ता अवैध आहे.';
   }
 
   return null;
 }
-

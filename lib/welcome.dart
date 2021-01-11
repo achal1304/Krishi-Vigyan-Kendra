@@ -120,7 +120,7 @@ class _WelcomeState extends State<Welcome> {
                           isLoading = false;
                         });
                       },
-                      child: Text('Login'),
+                      child: Text('लॉगिन'),
                     ),
                   ),
             // GestureDetector(
@@ -157,7 +157,7 @@ class _WelcomeState extends State<Welcome> {
                             ));
                         //onGoogleSignIn(context);
                       },
-                      child: Text('Signup'),
+                      child: Text('साइन अप'),
                     ),
                   ),
             // RaisedButton(

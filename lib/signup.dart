@@ -67,7 +67,7 @@ class _SignupState extends State<Signup> {
               children: <Widget>[
                 FaIcon(FontAwesomeIcons.googlePlusG),
                 SizedBox(width: 10),
-                Text('Sign up with Google'),
+                Text('Google सह साइन अप करा'),
               ],
             ),
             //child: Text('Google Sign-up'),

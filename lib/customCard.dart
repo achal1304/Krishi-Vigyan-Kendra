@@ -140,12 +140,12 @@ class _CustomCardState extends State<CustomCard> {
                               TextFormField(
                                 //autofocus: true,
                                 decoration: InputDecoration(
-                                  hintText: 'Title',
+                                  hintText: 'शीर्षक',
                                 ),
                                 controller: taskTitleInputController,
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Title cannot be empty!';
+                                    return 'शीर्षक रिक्त असू शकत नाही!';
                                   }
                                   return null;
                                 },
@@ -153,25 +153,25 @@ class _CustomCardState extends State<CustomCard> {
                               // SizedBox(height: 15),
                               TextFormField(
                                 decoration: InputDecoration(
-                                  hintText: 'Body',
+                                  hintText: 'शरीर',
                                 ),
                                 controller: taskDescripInputController,
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Body cannot be empty!';
+                                    return 'शरीर रिक्त असू शकत नाही!';
                                   }
                                   return null;
                                 },
                               ),
                               TextFormField(
                                 decoration: InputDecoration(
-                                  hintText: 'Description',
+                                  hintText: 'वर्णन',
                                 ),
                                 controller: descInputController,
                                 maxLines: null,
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Description cannot be empty!';
+                                    return 'वर्णन रिक्त असू शकत नाही!';
                                   }
                                   return null;
                                 },
@@ -179,7 +179,7 @@ class _CustomCardState extends State<CustomCard> {
                               SizedBox(height: 15),
                               CupertinoButton(
                                 //elevation: 7.0,
-                                child: Text('Upload Image'),
+                                child: Text('प्रतिमा अपलोड करा'),
                                 //textColor: Colors.white,
                                 color: Colors.blue,
                                 onPressed: () {
@@ -196,7 +196,7 @@ class _CustomCardState extends State<CustomCard> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  Text('Category: '),
+                                  Text('वर्ग: '),
                                   FlatButton(
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -214,7 +214,7 @@ class _CustomCardState extends State<CustomCard> {
                                                     CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   CupertinoButton(
-                                                    child: Text("Cancel"),
+                                                    child: Text("रद्द करा"),
                                                     onPressed: () {
                                                       Navigator.pop(context);
                                                     },
@@ -245,7 +245,7 @@ class _CustomCardState extends State<CustomCard> {
                                                     ),
                                                   ),
                                                   CupertinoButton(
-                                                      child: Text("Ok"),
+                                                      child: Text("ठीक आहे"),
                                                       onPressed: () {
                                                         setState(() {
                                                           _selectedNumber =
@@ -306,7 +306,7 @@ class _CustomCardState extends State<CustomCard> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  Text('Date: '),
+                                  Text('तारीख: '),
                                   FlatButton(
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -382,7 +382,7 @@ class _CustomCardState extends State<CustomCard> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
-                                  Text('Time: '),
+                                  Text('वेळः'),
                                   FlatButton(
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -461,7 +461,7 @@ class _CustomCardState extends State<CustomCard> {
                                 children: <Widget>[
                                   FlatButton(
                                     child: Text(
-                                      'Cancel',
+                                      'रद्द करा',
                                       style:
                                           TextStyle(color: Colors.red.shade400),
                                     ),
@@ -479,7 +479,7 @@ class _CustomCardState extends State<CustomCard> {
                                   SizedBox(width: 10),
                                   FlatButton(
                                     child: Text(
-                                      'Edit',
+                                      'सुधारणे',
                                       style: TextStyle(color: Colors.blue),
                                     ),
                                     onPressed: () {
@@ -524,7 +524,7 @@ class _CustomCardState extends State<CustomCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Text(
-                      "Delete the event?",
+                      "कार्यक्रम हटवायचा?",
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -536,7 +536,7 @@ class _CustomCardState extends State<CustomCard> {
                       children: <Widget>[
                         FlatButton(
                           child: Text(
-                            'No',
+                            'नाही',
                             style: TextStyle(
                                 color: Colors.red.shade400, fontSize: 15),
                           ),
@@ -547,7 +547,7 @@ class _CustomCardState extends State<CustomCard> {
                         VerticalDivider(),
                         FlatButton(
                           child: Text(
-                            'Yes',
+                            'होय',
                             style: TextStyle(color: Colors.blue, fontSize: 15),
                           ),
                           onPressed: () {

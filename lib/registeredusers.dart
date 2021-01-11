@@ -42,8 +42,9 @@ class RegisteredUsers extends StatelessWidget {
                   switch (snapshot.connectionState) {
                     case ConnectionState.waiting:
                       return Text(
-                        'Loading...',
-                        style: TextStyle(decoration: TextDecoration.none,
+                        'लोड करीत आहे ...',
+                        style: TextStyle(
+                            decoration: TextDecoration.none,
                             fontSize: 18,
                             color: Colors.black54),
                       );
@@ -53,7 +54,7 @@ class RegisteredUsers extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(top: 30),
                             child: Text(
-                              "Users Registered: " +
+                              "वापरकर्ते नोंदणीकृतः" +
                                   snapshot.data.documents.length.toString(),
                               style: TextStyle(
                                   decoration: TextDecoration.none,

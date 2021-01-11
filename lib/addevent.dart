@@ -38,10 +38,10 @@ class _AddEventState extends State<AddEvent> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Done!"),
+          title: Text("पूर्ण झाले!"),
           actions: <Widget>[
             FlatButton(
-              child: Text("OK"),
+              child: Text("ठीक आहे"),
               onPressed: () {
                 titleController.clear();
                 bodyController.clear();
@@ -107,7 +107,7 @@ class _AddEventState extends State<AddEvent> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Add Events'),
+          title: Text('कार्यक्रम जोडा'),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -117,7 +117,7 @@ class _AddEventState extends State<AddEvent> {
             children: <Widget>[
               Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Text('Enter the details ',
+                  child: Text('तपशील प्रविष्ट करा',
                       style: TextStyle(fontSize: 22))),
               Container(
                   width: 280,
@@ -125,7 +125,7 @@ class _AddEventState extends State<AddEvent> {
                   child: TextField(
                     controller: topicController,
                     autocorrect: true,
-                    decoration: InputDecoration(hintText: 'Topic'),
+                    decoration: InputDecoration(hintText: 'विषय'),
                   )),
               Container(
                   width: 280,
@@ -133,7 +133,7 @@ class _AddEventState extends State<AddEvent> {
                   child: TextField(
                     controller: titleController,
                     autocorrect: true,
-                    decoration: InputDecoration(hintText: 'Title'),
+                    decoration: InputDecoration(hintText: 'शीर्षक'),
                   )),
               Container(
                   width: 280,
@@ -141,7 +141,7 @@ class _AddEventState extends State<AddEvent> {
                   child: TextField(
                     controller: bodyController,
                     autocorrect: true,
-                    decoration: InputDecoration(hintText: 'Body'),
+                    decoration: InputDecoration(hintText: 'शरीर'),
                   )),
               RaisedButton(
                 onPressed: () {
@@ -151,7 +151,7 @@ class _AddEventState extends State<AddEvent> {
                 color: Colors.pink,
                 textColor: Colors.white,
                 padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
-                child: Text('Submit'),
+                child: Text('प्रस्तुत करणे'),
               ),
               Visibility(
                   visible: visible,

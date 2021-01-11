@@ -108,7 +108,7 @@ class _LoginState extends State<Login> {
               children: <Widget>[
                 FaIcon(FontAwesomeIcons.googlePlusG),
                 SizedBox(width: 10),
-                Text('Login'),
+                Text('लॉगिन'),
               ],
             ),
           ),

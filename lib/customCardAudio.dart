@@ -60,7 +60,7 @@ class _CustomCardAudioState extends State<CustomCardAudio> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Text(
-                      "Delete?",
+                      "हटवायचे?",
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -72,7 +72,7 @@ class _CustomCardAudioState extends State<CustomCardAudio> {
                       children: <Widget>[
                         FlatButton(
                           child: Text(
-                            'No',
+                            'नाही',
                             style: TextStyle(
                                 color: Colors.red.shade400, fontSize: 15),
                           ),
@@ -83,7 +83,7 @@ class _CustomCardAudioState extends State<CustomCardAudio> {
                         VerticalDivider(),
                         FlatButton(
                           child: Text(
-                            'Yes',
+                            'होय',
                             style: TextStyle(color: Colors.blue, fontSize: 15),
                           ),
                           onPressed: () {

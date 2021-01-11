@@ -45,7 +45,7 @@ class _ExistanceCheckState extends State<ExistanceCheck> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'You have already registered !',
+                    'आपण आधीच नोंदणी केली आहे! ',
                     style: TextStyle(
                       decoration: TextDecoration.none,
                       fontSize: 15,
@@ -71,7 +71,7 @@ class _ExistanceCheckState extends State<ExistanceCheck> {
                           fullscreenDialog: true,
                         ));
                   },
-                  child: Text('Go to Login Page'),
+                  child: Text('लॉगिन पृष्ठावर जा'),
 
                   //child: Text('Google Sign-up'),
                 ),

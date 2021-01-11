@@ -58,7 +58,7 @@ class _ImageFullState extends State<ImageFull> {
                   backgroundColor: Colors.white,
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
                 ),
-                new Text("     Downloading Image")
+                new Text("    प्रतिमा डाउनलोड करत आहे")
               ],
             )));
             var imageId = await ImageDownloader.downloadImage(widget.url,
@@ -99,10 +99,10 @@ class _ImageFullState extends State<ImageFull> {
   _displaySnackBar(BuildContext context, var imageId) {
     _scaffoldKey.currentState.showSnackBar(
       SnackBar(
-        content: Text('Image Downloaded'),
+        content: Text('प्रतिमा डाउनलोड केलीs'),
         duration: Duration(seconds: 4),
         action: SnackBarAction(
-            label: "View Image",
+            label: "प्रतिमा पहा",
             onPressed: () async {
               var path = await ImageDownloader.findPath(imageId);
               await ImageDownloader.open(path).catchError((error) {

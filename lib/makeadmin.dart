@@ -21,7 +21,7 @@ class _MakeAdminState extends State<MakeAdmin> {
   String mail;
   String uid;
   String name;
-  final snackBar = SnackBar(content: Text('Email cannot be empty!'));
+  final snackBar = SnackBar(content: Text('ईमेल रिक्त असू शकत नाही!'));
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -38,7 +38,7 @@ class _MakeAdminState extends State<MakeAdmin> {
           },
         ),
         title: Text(
-          'Add Admin',
+          'प्रशासन जोडा',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -81,7 +81,7 @@ class _MakeAdminState extends State<MakeAdmin> {
                     if (controller.text.isEmpty) {
                       _scaffoldKey.currentState.showSnackBar(
                         SnackBar(
-                          content: Text('Please enter a valid email!'),
+                          content: Text('एक वैध ईमेल प्रविष्ट करा!'),
                           duration: Duration(seconds: 3),
                         ),
                       );
@@ -91,14 +91,14 @@ class _MakeAdminState extends State<MakeAdmin> {
                       //Navigator.pop(context);
                       _scaffoldKey.currentState.showSnackBar(
                         SnackBar(
-                          content: Text('Operation Successful!'),
+                          content: Text('ऑपरेशन यशस्वी!'),
                           duration: Duration(seconds: 3),
                         ),
                       );
                     }
                   },
                   child: Text(
-                    'Add Admin',
+                    'प्रशासन जोडा',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

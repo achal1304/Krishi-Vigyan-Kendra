@@ -92,7 +92,7 @@ class _HomePageSState extends State<HomePageS> {
             height: 15,
           ),
           Text(
-            'Welcome ${widget._user.displayName}!',
+            'स्वागत आहे ${widget._user.displayName}!',
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -111,7 +111,7 @@ class _HomePageSState extends State<HomePageS> {
                   AsyncSnapshot<DocumentSnapshot> snapshot) {
                 //data = snapshot.data['admin'];
                 if (snapshot.hasError) {
-                  return Text('Error : ${snapshot.error}');
+                  return Text('त्रुटी: ${snapshot.error}');
                 } else if (snapshot.hasData) {
                   return checkRole(snapshot.data);
                 }
@@ -133,7 +133,7 @@ class _HomePageSState extends State<HomePageS> {
     if (snapshot.data == null) {
       return Center(
         child: Text(
-          'User not Found! Please Register first',
+          'वापरकर्ता सापडला नाही! कृपया प्रथम नोंदणी करा',
           style: TextStyle(
             decoration: TextDecoration.none,
             color: Colors.white,
@@ -164,7 +164,7 @@ class _HomePageSState extends State<HomePageS> {
     return Container(
         child: Center(
             child: Text(
-      "Welcome to ISKCON PUNE",
+      "इस्कॉन पुणे मध्ये आपले स्वागत आहे",
       style: TextStyle(
           decoration: TextDecoration.none,
           color: Colors.white,
@@ -210,7 +210,7 @@ class _HomePageSState extends State<HomePageS> {
     return Container(
         child: Center(
             child: Text(
-      "Welcome to ISKCON PUNE",
+      "इस्कॉन पुणे मध्ये आपले स्वागत आहे",
       style: TextStyle(
           decoration: TextDecoration.none,
           color: Colors.white,

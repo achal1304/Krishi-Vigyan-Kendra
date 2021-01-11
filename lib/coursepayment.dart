@@ -77,7 +77,7 @@ class _CourseFeesState extends State<CourseFees> {
     print(p.status);
     statuspay = p.status.toString();
     print(statuspay);
-    Navigator.pop(context,statuspay);
+    Navigator.pop(context, statuspay);
   }
 
   @override
@@ -87,7 +87,7 @@ class _CourseFeesState extends State<CourseFees> {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              'Course Payment',
+              'कोर्स पेमेंट',
               style: TextStyle(color: Colors.black),
               textScaleFactor: 1.2,
             ),
@@ -117,7 +117,7 @@ class _CourseFeesState extends State<CourseFees> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'ISKCONPUNE.28191248@hdfcbank',
-                            labelText: 'Receiving UPI Address',
+                            labelText: 'यूपीआय पत्ता प्राप्त करीत आहे',
                           ),
                         ),
                       ),
@@ -156,7 +156,7 @@ class _CourseFeesState extends State<CourseFees> {
                           enabled: false,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Amount',
+                            labelText: 'रक्कम',
                           ),
                         ),
                       ),
@@ -178,7 +178,7 @@ class _CourseFeesState extends State<CourseFees> {
                       Container(
                         margin: EdgeInsets.only(bottom: 12),
                         child: Text(
-                          'Pay Using',
+                          'पे वापरणे',
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ),
@@ -199,34 +199,34 @@ class _CourseFeesState extends State<CourseFees> {
                             physics: NeverScrollableScrollPhysics(),
                             children: snapshot.data
                                 .map((it) => Material(
-                              key: ObjectKey(it.upiApplication),
-                              color: Colors.white54,
-                              child: InkWell(
+                                      key: ObjectKey(it.upiApplication),
+                                      color: Colors.white54,
+                                      child: InkWell(
 //                                onTap: () => _onTap(it),
-                              onTap: ()async{
-                                await _onTap(it);
+                                        onTap: () async {
+                                          await _onTap(it);
 //                                Navigator.pop(context,statuspay);
-                              },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Image.memory(
-                                      it.icon,
-                                      width: 64,
-                                      height: 64,
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 4),
-                                      child: Text(
-                                        it.upiApplication.getAppName(),
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            Image.memory(
+                                              it.icon,
+                                              width: 64,
+                                              height: 64,
+                                            ),
+                                            Container(
+                                              margin: EdgeInsets.only(top: 4),
+                                              child: Text(
+                                                it.upiApplication.getAppName(),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ))
+                                    ))
                                 .toList(),
                           );
                         },
@@ -243,11 +243,11 @@ class _CourseFeesState extends State<CourseFees> {
 
 String _validateUpiAddress(String value) {
   if (value.isEmpty) {
-    return 'UPI Address is required.';
+    return 'यूपीआय पत्ता आवश्यक आहे.';
   }
 
   if (!UpiPay.checkIfUpiAddressIsValid(value)) {
-    return 'UPI Address is invalid.';
+    return 'यूपीआय पत्ता अवैध आहे.';
   }
 
   return null;
