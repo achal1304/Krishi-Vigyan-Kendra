@@ -141,16 +141,16 @@ class _LoginState extends State<Login> {
 
   void onGoogleSignIn(BuildContext context) async {
     FirebaseUser user = await _handleSignIn();
-    Crud().getData().then(
-      (val) {
-//        prem = val.documents[user.uid].data["premium"];
-        if (val.documents.length > 0) {
-          print(val.documents[user.uid].data["admin"]);
-        } else {
-          print("Not Found");
-        }
-      },
-    );
+//     Crud().getData().then(
+//       (val) {
+// //        prem = val.documents[user.uid].data["premium"];
+//         if (val.documents.length > 0) {
+//           print(val.documents[user.uid].data["admin"]);
+//         } else {
+//           print("Not Found");
+//         }
+//       },
+//     );
     final DocumentReference document =
         Firestore.instance.collection("users").document(user.uid);
 

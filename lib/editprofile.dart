@@ -429,8 +429,12 @@ class _EditProfileState extends State<EditProfile> {
                   } catch (e) {
                     return;
                   }
+
                   setState(() {
-                    address.text = p.description;
+                    if (p.description != null) {
+                      address.text = p.description;
+                    } else
+                      address.text = "";
                   });
 //                  _handlePressButton();
                 },

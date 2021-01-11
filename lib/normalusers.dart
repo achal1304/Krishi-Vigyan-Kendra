@@ -155,7 +155,7 @@ class _NormalUsersState extends State<NormalUsers> {
           leading: IconButton(
             padding: EdgeInsets.only(top: 30),
             icon: Image(
-              image: AssetImage('assets/drawericon2.png'),
+              image: AssetImage('assets/sanskriti samvardhan mandal.png'),
               // color: Colors.black,
               height: 70,
               width: 70,

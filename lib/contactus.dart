@@ -41,7 +41,8 @@ class ContactScreen extends StatelessWidget {
                     Toast.show("Number copied to clipboard", context,
                         duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                   },
-                  title: Text('Phone Number : '),
+                  // title: Text('Phone Number : '),
+                  title: Text('फोन नंबर: '),
                   subtitle: Text('+91 8411845000'),
                   trailing: Icon(Icons.phone),
                 ),
@@ -59,7 +60,7 @@ class ContactScreen extends StatelessWidget {
                     Toast.show("Email copied to clipboard", context,
                         duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                   },
-                  title: Text('Email : '),
+                  title: Text('ईमेल:'),
                   subtitle: Text('nvcc@iskconpune.in'),
                   trailing: Icon(Icons.alternate_email),
                 ),

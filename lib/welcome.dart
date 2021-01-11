@@ -91,7 +91,7 @@ class _WelcomeState extends State<Welcome> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image(
-              image: AssetImage('assets/fortunate families.png'),
+              image: AssetImage('assets/sanskriti samvardhan mandal.png'),
               height: 200,
               width: 200,
             ),
@@ -200,17 +200,17 @@ class _WelcomeState extends State<Welcome> {
 
   void onGoogleSignIn(BuildContext context) async {
     FirebaseUser user = await _handleSignIn();
-    Crud().getData().then(
-      (val) {
-//        prem = val.documents[user.uid].data["admin"];
-//        print("premmiummmm ********* = " + prem.toString());
-        if (val.documents.length > 0) {
-          print(val.documents[user.uid].data["admin"]);
-        } else {
-          print("Not Found");
-        }
-      },
-    );
+//     Crud().getData().then(
+//       (val) {
+// //        prem = val.documents[user.uid].data["admin"];
+// //        print("premmiummmm ********* = " + prem.toString());
+//         // if (val.documents.length > 0) {
+//         //   print(val.documents[user.uid].data["admin"]);
+//         // } else {
+//         //   print("Not Found");
+//         // }
+//       },
+//     );
     final DocumentReference document =
         Firestore.instance.collection("users").document(user.uid);
 

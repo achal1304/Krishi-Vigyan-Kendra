@@ -121,12 +121,14 @@ class _HomePageLState extends State<HomePageL> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  'असे दिसते आहे की आपण अद्याप नोंदणीकृत केलेले नाही!',
-                  style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 15,
-                    color: Colors.white,
+                Expanded(
+                  child: Text(
+                    'असे दिसते आहे की आपण अद्याप नोंदणीकृत केलेले नाही!',
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
