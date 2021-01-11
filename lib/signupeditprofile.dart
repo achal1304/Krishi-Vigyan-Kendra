@@ -288,7 +288,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
       appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'Update Profile',
+            'प्रोफाइल अद्यतनित करा ',
             style: TextStyle(color: Colors.black),
             textScaleFactor: 1.2,
           ),
@@ -378,7 +378,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                   prefixIcon: Icon(Icons.person),
-                  hintText: data['Name'],
+                  hintText: data['नाव'],
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blueAccent, width: 32.0),
@@ -402,7 +402,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                   prefixIcon: Icon(Icons.my_location),
-                  hintText: data['Address'],
+                  hintText: data['पत्ता'],
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blueAccent, width: 32.0),
@@ -532,9 +532,9 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             if (data['Gender'] == null)
-              Text("Gender :")
+              Text("लिंग:")
             else
-              Text("Gender : " + data['Gender']),
+              Text("लिंग: " + data['Gender']),
             Column(
               children: <Widget>[
                 // Padding(
@@ -555,7 +555,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                       },
                     ),
                     Text(
-                      'Male',
+                      'नर',
                       style: new TextStyle(fontSize: 17.0),
                     ),
                     Radio(
@@ -569,7 +569,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                       },
                     ),
                     Text(
-                      'Female',
+                      'स्त्री',
                       style: new TextStyle(
                         fontSize: 17.0,
                       ),
@@ -585,7 +585,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                       },
                     ),
                     Text(
-                      'Other',
+                      'इतर',
                       style: new TextStyle(fontSize: 17.0),
                     ),
                   ],
@@ -715,7 +715,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                   // }
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
-                      content: Text('Thanks for updating profile!'),
+                      content: Text('प्रोफाइल अद्यतनित केल्याबद्दल धन्यवाद!'),
                       duration: Duration(seconds: 2),
                     ),
                   );
@@ -733,7 +733,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
 //                  });
                   //Navigator.pop(context);
                 },
-                text: "Update Profile",
+                text: "प्रोफाइल अद्यतनित करा",
                 shape: GFButtonShape.pills,
                 size: GFSize.LARGE,
               ),
@@ -754,7 +754,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                 );
               },
               child: new Text(
-                "Go to dashboard",
+                "डॅशबोर्डवर जा",
                 style: TextStyle(
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,

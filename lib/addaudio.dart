@@ -116,7 +116,7 @@ class AddAudioState extends State<AddAudio> {
                 controller: controller,
                 cursorColor: Colors.blue,
                 decoration: InputDecoration(
-                  hintText: 'Name',
+                  hintText: 'नाव',
                   labelStyle: TextStyle(color: Colors.orangeAccent),
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -143,7 +143,7 @@ class AddAudioState extends State<AddAudio> {
                       if (controller.text.isEmpty) {
                         _scaffoldKey.currentState.showSnackBar(
                           SnackBar(
-                            content: Text('Name cannot be Empty!'),
+                            content: Text('नाव रिक्त असू शकत नाही!'),
                             duration: Duration(seconds: 3),
                           ),
                         );
@@ -152,7 +152,7 @@ class AddAudioState extends State<AddAudio> {
                       }
                     },
                     child: Text(
-                      'Select Audio File',
+                      'ऑडिओ फाइल निवडा',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -250,13 +250,13 @@ class UploadTaskListTile extends StatelessWidget {
           final StorageTaskSnapshot snapshot = event.snapshot;
           subtitle = Text('$status: ${_bytesTransferred(snapshot)}% uploaded');
         } else {
-          subtitle = const Text('Starting...');
+          subtitle = const Text('प्रारंभ करीत आहे ...');
         }
         return Dismissible(
           key: Key(task.hashCode.toString()),
           onDismissed: (_) => onDismissed(),
           child: ListTile(
-            title: Text('Upload Task'),
+            title: Text('कार्य अपलोड करा'),
             subtitle: subtitle,
             trailing: Row(
               mainAxisSize: MainAxisSize.min,

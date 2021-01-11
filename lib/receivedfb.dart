@@ -25,7 +25,7 @@ class _ReceivedFeedBackState extends State<ReceivedFeedBack> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Feedback',
+          'अभिप्राय',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),
@@ -43,19 +43,17 @@ class _ReceivedFeedBackState extends State<ReceivedFeedBack> {
       body: Container(
         padding: const EdgeInsets.all(10.0),
         child: StreamBuilder<QuerySnapshot>(
-          stream: Firestore.instance
-              .collection('Feedbacks')
-              .snapshots(),
+          stream: Firestore.instance.collection('Feedbacks').snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return Text('Loading...');
+                return Text('लोड करीत आहे ...');
               default:
                 return ListView(
                   children:
-                  snapshot.data.documents.map((DocumentSnapshot document) {
+                      snapshot.data.documents.map((DocumentSnapshot document) {
                     return Card(
                       color: Color(0xffffffff),
                       child: Column(

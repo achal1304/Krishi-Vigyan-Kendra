@@ -93,7 +93,7 @@ class AddVideoState extends State<AddVideo> {
               controller: controller,
               cursorColor: Colors.blue,
               decoration: InputDecoration(
-                hintText: 'Youtube Video URL',
+                hintText: 'यूट्यूब व्हिडिओ URL',
                 labelStyle: TextStyle(color: Colors.orangeAccent),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -111,7 +111,7 @@ class AddVideoState extends State<AddVideo> {
             padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
             child: MergeSemantics(
               child: ListTile(
-                title: Text('Live Video'),
+                title: Text('थेट व्हिडिओ'),
                 trailing: CupertinoSwitch(
                     activeColor: Colors.blue,
                     value: isLive,
@@ -172,7 +172,7 @@ class AddVideoState extends State<AddVideo> {
                     if (controller.text.isEmpty) {
                       _scaffoldKey.currentState.showSnackBar(
                         SnackBar(
-                          content: Text('URL cannot be Empty!'),
+                          content: Text('URL रिकामी असू शकत नाही!'),
                           duration: Duration(seconds: 3),
                         ),
                       );
@@ -184,14 +184,14 @@ class AddVideoState extends State<AddVideo> {
                       //Navigator.pop(context);
                       _scaffoldKey.currentState.showSnackBar(
                         SnackBar(
-                          content: Text('URL Added!'),
+                          content: Text('URL जोडली!'),
                           duration: Duration(seconds: 3),
                         ),
                       );
                     }
                   },
                   child: Text(
-                    'Add Video',
+                    'व्हिडिओ जोडा',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

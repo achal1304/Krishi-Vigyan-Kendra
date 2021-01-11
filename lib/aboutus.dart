@@ -10,7 +10,7 @@ class AboutUs extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'About Us',
+          'आमच्याबद्दल',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),

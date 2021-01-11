@@ -35,7 +35,7 @@ class _ViewCouponsState extends State<ViewCoupons> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'View Coupons',
+          'कूपन पहा',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),
@@ -120,7 +120,7 @@ class _ViewCouponsState extends State<ViewCoupons> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            "Breakfast = ",
+                            "न्याहारी = ",
                             style: TextStyle(fontSize: 24),
                           ),
 //                          SizedBox(

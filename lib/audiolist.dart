@@ -20,7 +20,7 @@ class _AudioListState extends State<AudioList> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Audio Streams',
+          'ऑडिओ प्रवाह',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),
@@ -45,7 +45,7 @@ class _AudioListState extends State<AudioList> {
               if (snapshot.hasError) return Text('Error: ${snapshot.error}');
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
-                  return Text('Loading...');
+                  return Text('लोड करीत आहे ...');
                 default:
                   return ListView(
                     children: snapshot.data.documents

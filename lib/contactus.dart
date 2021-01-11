@@ -11,7 +11,7 @@ class ContactScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Contact Us',
+          'आमच्याशी संपर्क साधा',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),

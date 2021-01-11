@@ -47,7 +47,7 @@ class _ViewCoursesState extends State<ViewCourses> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Join Courses',
+          'अभ्यासक्रमांमध्ये सामील व्हा',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),
@@ -134,7 +134,7 @@ class _ViewCoursesState extends State<ViewCourses> {
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return Text('Loading...');
+                return Text('लोड करीत आहे ...');
               default:
                 return ListView(
                   children:
@@ -187,7 +187,7 @@ class _ViewCoursesState extends State<ViewCourses> {
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return Text('Loading...');
+                return Text('लोड करीत आहे ...');
               default:
                 return ListView(
                   children:

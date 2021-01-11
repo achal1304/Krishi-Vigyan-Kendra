@@ -33,7 +33,7 @@ class _FeedBackState extends State<FeedBack> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'Feedback',
+            'अभिप्राय',
             style: TextStyle(color: Colors.black),
             textScaleFactor: 1.2,
           ),
@@ -68,8 +68,8 @@ class _FeedBackState extends State<FeedBack> {
                 child: TextField(
                   controller: _textController,
                   enabled: _isEnabled,
-                  decoration:
-                      InputDecoration(hintText: "Enter your feedback here"),
+                  decoration: InputDecoration(
+                      hintText: "आपला अभिप्राय येथे प्रविष्ट करा"),
                   maxLines: null,
                 ),
               ),
@@ -90,7 +90,7 @@ class _FeedBackState extends State<FeedBack> {
                     });
                     _scaffoldKey.currentState.showSnackBar(
                       SnackBar(
-                        content: Text('Thank You for your feedback'),
+                        content: Text('आपल्या अभिप्रायाबद्दल धन्यवाद'),
                         duration: Duration(seconds: 3),
                       ),
                     );
@@ -98,7 +98,7 @@ class _FeedBackState extends State<FeedBack> {
 
                   //Navigator.pop(context);
                 },
-                text: "Send Feedback",
+                text: "अभिप्राय पाठवा",
                 shape: GFButtonShape.pills,
                 size: GFSize.LARGE,
               ),

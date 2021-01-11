@@ -177,7 +177,7 @@ class _NormalUsersState extends State<NormalUsers> {
           title: Padding(
             padding: const EdgeInsets.only(top: 34),
             child: Text(
-              'Hare Krishna!',
+              'हरे कृष्ण!',
               textScaleFactor: 1.7,
               style: GoogleFonts.courgette(
                 textStyle: TextStyle(color: Colors.black),
@@ -195,7 +195,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("Welcome " + data['Name'] + "!"),
+                    Text("स्वागत आहे " + data['Name'] + "!"),
                     CircleAvatar(
                       backgroundImage: NetworkImage(widget._user.photoUrl),
                     )
@@ -226,7 +226,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.prayingHands,
                 size: 23.0,
               ),
-              title: Text('View Daily Darshan'),
+              title: Text('दररोज दर्शन '),
               onTap: () {
                 Navigator.push(
                   context,
@@ -244,7 +244,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.podcast,
                 size: 28.0,
               ),
-              title: Text('Hear Audios'),
+              title: Text('ऑडिओ ऐका'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -273,14 +273,14 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.youtube,
                 size: 23.0,
               ),
-              title: Text('Latest Video'),
+              title: Text('नवीनतम व्हिडिओ'),
             ),
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.bookOpen,
                 size: 28.0,
               ),
-              title: Text('Join Courses'),
+              title: Text('अभ्यासक्रमांमध्ये सामील व्हा'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -298,7 +298,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.userEdit,
                 size: 28.0,
               ),
-              title: Text('Edit Profile'),
+              title: Text('प्रोफाईल संपादित करा'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -317,7 +317,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.hamburger,
                 size: 28.0,
               ),
-              title: Text('Food Coupons'),
+              title: Text('अन्न कूपन'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -347,7 +347,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.rupeeSign,
                 size: 25.0,
               ),
-              title: Text('Donate'),
+              title: Text('दान करा'),
             ),
             // ListTile(
             //   leading: FaIcon(
@@ -376,7 +376,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.solidEnvelope,
                 size: 23.0,
               ),
-              title: Text('Contact Us'),
+              title: Text('आमच्याशी संपर्क साधा'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -394,7 +394,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.infoCircle,
                 size: 23.0,
               ),
-              title: Text('About ISKCON'),
+              title: Text('इस्कॉन बद्दल'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -412,7 +412,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 Icons.feedback,
                 size: 23.0,
               ),
-              title: Text('Feedback'),
+              title: Text('अभिप्राय'),
               onTap: () {
                 Navigator.push(
                   context,
@@ -430,7 +430,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 Icons.share,
                 size: 23.0,
               ),
-              title: Text('Share App'),
+              title: Text('अॅप सामायिक करा'),
               onTap: () async {
                 share();
               },
@@ -444,7 +444,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.signOutAlt,
                 size: 23.0,
               ),
-              title: Text('Logout'),
+              title: Text('बाहेर पडणे'),
               onTap: () {
                 widget._googleSignIn.signOut();
                 Navigator.popUntil(
@@ -468,10 +468,10 @@ class _NormalUsersState extends State<NormalUsers> {
               .snapshots(),
           builder:
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.hasError) return Text('Error: ${snapshot.error}');
+            if (snapshot.hasError) return Text('त्रुटी: ${snapshot.error}');
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return Text('Loading...');
+                return Text('लोड करीत आहे ... ');
               default:
                 return ListView(
                   children:
@@ -870,7 +870,7 @@ class _NormalUsersState extends State<NormalUsers> {
         actions: [
           CupertinoDialogAction(
             isDefaultAction: true,
-            child: Text('Ok'),
+            child: Text('ठीक आहे'),
             onPressed: () async {
               Navigator.of(context, rootNavigator: true).pop();
               await Navigator.push(

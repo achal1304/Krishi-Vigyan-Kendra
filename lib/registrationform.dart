@@ -9,9 +9,7 @@ class RegistrationForm extends StatefulWidget {
   RegistrationForm(String text, {@required this.descript});
   final descript;
   @override
-  _RegistrationFormState createState() => _RegistrationFormState(
-
-  );
+  _RegistrationFormState createState() => _RegistrationFormState();
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
@@ -23,31 +21,33 @@ class _RegistrationFormState extends State<RegistrationForm> {
   bool value2 = false;
 
   //bool ispressed = true;
-  _savenswitchValue1(bool value1,String name) async {
-    if(value1 == true){
+  _savenswitchValue1(bool value1, String name) async {
+    if (value1 == true) {
       setState(() {
         reqfields.add(name);
       });
-    }
-    else setState(() {
-      reqfields.remove(name);
-    });
+    } else
+      setState(() {
+        reqfields.remove(name);
+      });
   }
-@override
-void initState() {
+
+  @override
+  void initState() {
     setState(() {
       value1 = false;
       value2 = false;
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Registration Form',
+          'नोंदणी पत्रक',
           style: TextStyle(color: Colors.black),
           textScaleFactor: 1.2,
         ),
@@ -67,17 +67,16 @@ void initState() {
           children: <Widget>[
             MergeSemantics(
               child: ListTile(
-                title: Text('Name'),
+                title: Text('नाव'),
                 trailing: CupertinoSwitch(
-                  activeColor: Colors.blue,
-                  value: value1,
-                  onChanged: (bool value) {
-                    setState(() {
-                      value1 = value;
-                      _savenswitchValue1(value1,"Name");
-                    });
-                  }
-                ),
+                    activeColor: Colors.blue,
+                    value: value1,
+                    onChanged: (bool value) {
+                      setState(() {
+                        value1 = value;
+                        _savenswitchValue1(value1, "Name");
+                      });
+                    }),
                 onTap: () {
                   setState(() {
                     value1 = !value1;
@@ -87,17 +86,16 @@ void initState() {
             ),
             MergeSemantics(
               child: ListTile(
-                title: Text('Address'),
+                title: Text('पत्ता'),
                 trailing: CupertinoSwitch(
                     activeColor: Colors.blue,
                     value: value2,
                     onChanged: (bool value) {
                       setState(() {
                         value2 = value;
-                        _savenswitchValue1(value2,"Address");
+                        _savenswitchValue1(value2, "Address");
                       });
-                    }
-                ),
+                    }),
                 onTap: () {
                   setState(() {
                     value2 = !value2;
@@ -112,7 +110,7 @@ void initState() {
                 onPressed: () async {
                   Crud().updateArr1(widget.descript, reqfields);
                 },
-                text: "Upload Form",
+                text: "फॉर्म अपलोड करा",
                 shape: GFButtonShape.pills,
                 size: GFSize.LARGE,
               ),

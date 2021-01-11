@@ -57,7 +57,7 @@ class _DailyDarshanState extends State<DailyDarshan> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Upload Daily Darshan',
+          'दररोज दर्शन अपलोड करा',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -101,7 +101,7 @@ class _DailyDarshanState extends State<DailyDarshan> {
                     minWidth: MediaQuery.of(context).size.width * 0.4,
                     child: FlatButton.icon(
                       label: Text(
-                        "Delete",
+                        "हटवा",
                         style: TextStyle(color: Colors.white),
                       ),
 
@@ -121,7 +121,7 @@ class _DailyDarshanState extends State<DailyDarshan> {
                     minWidth: MediaQuery.of(context).size.width * 0.4,
                     child: FlatButton.icon(
                       label: Text(
-                        "View Images",
+                        "प्रतिमा पहा",
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
@@ -148,7 +148,7 @@ class _DailyDarshanState extends State<DailyDarshan> {
           ] else ...[
             Center(
               child: Text(
-                'No Image Selected!',
+                'कोणतीही प्रतिमा निवडली नाही!',
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -255,7 +255,7 @@ class _UploaderState extends State<Uploader> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               if (_uploadTask.isComplete)
-                Text('Image Uploaded Successfully!',
+                Text('प्रतिमा यशस्वीरित्या अपलोड केली!',
                     style: TextStyle(
                         // color: Colors.greenAccent,
                         height: 2,
@@ -282,7 +282,7 @@ class _UploaderState extends State<Uploader> {
             child: FlatButton.icon(
                 color: Colors.blue,
                 label: Text(
-                  'Upload',
+                  'अपलोड करा',
                   style: TextStyle(color: Colors.white),
                 ),
                 icon: Icon(

@@ -250,7 +250,7 @@ class _CustomCardCoursesDescriptionState
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Starts on: " + widget.stime,
+                    "रोजी प्रारंभ: " + widget.stime,
                     style: TextStyle(
                       // fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic,
@@ -261,7 +261,7 @@ class _CustomCardCoursesDescriptionState
                     width: MediaQuery.of(context).size.width * 0.16,
                   ),
                   Text(
-                    "Ends on: " + widget.edate,
+                    "रोजी समाप्तः " + widget.edate,
                     style: TextStyle(
                       // fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic,
@@ -327,7 +327,7 @@ class _CustomCardCoursesDescriptionState
 //        backgroundColor: Colors.blueAccent,
 //        elevation: 0.5,
         child: Text(
-          "Send Notification",
+          "सूचना पाठवा",
           style: TextStyle(fontSize: 12),
         ),
         onPressed: () async {
@@ -354,7 +354,7 @@ class _CustomCardCoursesDescriptionState
 //                        prefixIcon: Icon(Icons.mail_outline),
                             contentPadding:
                                 EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                            hintText: "Title",
+                            hintText: "शीर्षक",
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Colors.blueAccent, width: 32.0),
@@ -383,7 +383,7 @@ class _CustomCardCoursesDescriptionState
 //                        prefixIcon: Icon(Icons.person),
                             contentPadding:
                                 EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                            hintText: "Body",
+                            hintText: "शरीर",
                             border: OutlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Colors.blueAccent, width: 32.0),
@@ -410,7 +410,7 @@ class _CustomCardCoursesDescriptionState
                           backgroundColor: Colors.blueAccent,
                           elevation: 0.5,
                           label: new Text(
-                            "Send Notification",
+                            "सूचना पाठवा",
                             style: TextStyle(fontSize: 12),
                           ),
                           onPressed: () async {
@@ -466,7 +466,7 @@ class _CustomCardCoursesDescriptionState
         textColor: Colors.white,
         color: Colors.blueAccent,
         child: Text(
-          "Registered users",
+          "नोंदणीकृत वापरकर्ते",
           style: TextStyle(fontSize: 12),
         ),
         onPressed: () async {
@@ -486,7 +486,7 @@ class _CustomCardCoursesDescriptionState
         backgroundColor: Colors.blueAccent,
         elevation: 0.5,
         label: Text(
-          "Register",
+          "नोंदणी करा",
           style: TextStyle(fontSize: 18),
         ),
         onPressed: () async {
@@ -498,7 +498,7 @@ class _CustomCardCoursesDescriptionState
         backgroundColor: Colors.grey,
         elevation: 0.5,
         label: Text(
-          "Already Registered",
+          "आधीच नोंदणी झाली आहे",
           style: TextStyle(fontSize: 10),
         ),
         onPressed: () async {
@@ -531,7 +531,7 @@ class _CustomCardCoursesDescriptionState
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
-                                Text("Select Participants"),
+                                Text("सहभागी निवडा"),
                                 DropdownButton(
                                   // Not necessary for Option 1
                                   onChanged: (newValue) {
@@ -554,7 +554,7 @@ class _CustomCardCoursesDescriptionState
                                   thickness: 0.5,
                                 ),
                                 Text(
-                                  "Register for Course",
+                                  "कोर्ससाठी नोंदणी करा",
                                   style: TextStyle(
                                     fontSize: 20,
                                   ),
@@ -567,7 +567,7 @@ class _CustomCardCoursesDescriptionState
                                   children: <Widget>[
                                     FlatButton(
                                       child: Text(
-                                        'No',
+                                        'नाही',
                                         style: TextStyle(
                                             color: Colors.red.shade400,
                                             fontSize: 15),
@@ -579,7 +579,7 @@ class _CustomCardCoursesDescriptionState
                                     VerticalDivider(),
                                     FlatButton(
                                       child: Text(
-                                        'Yes',
+                                        'होय',
                                         style: TextStyle(
                                             color: Colors.blue, fontSize: 15),
                                       ),
@@ -638,11 +638,10 @@ class _CustomCardCoursesDescriptionState
 
   Widget paidcourse() {
     if (widget.payamount == 0 || widget.payamount == null) {
-      return Text("Free Course");
+      return Text("विनामूल्य कोर्स");
     } else
-      return Text("Course Fees : Rs." +
-          widget.payamount.toString() +
-          " per participant");
+      return Text(
+          "कोर्स फी: रु." + widget.payamount.toString() + " per participant");
   }
 
   Widget eventeVenue() {
@@ -658,7 +657,7 @@ class _CustomCardCoursesDescriptionState
               width: 5,
             ),
             Text(
-              "Online Event",
+              "ऑनलाइन कार्यक्रम",
               style: TextStyle(
                 fontSize: 16.0,
                 color: Color(0xFF000000),
@@ -707,7 +706,7 @@ class _CustomCardCoursesDescriptionState
         await _storedData(_selectedparticipants);
         _scaffoldKey.currentState.showSnackBar(
           SnackBar(
-            content: Text('You have registered!'),
+            content: Text('आपण नोंदणी केली आहे!'),
             duration: Duration(seconds: 3),
           ),
         );
@@ -723,7 +722,7 @@ class _CustomCardCoursesDescriptionState
         await _storedData(_selectedparticipants);
         _scaffoldKey.currentState.showSnackBar(
           SnackBar(
-            content: Text('You have registered!!'),
+            content: Text('आपण नोंदणी केली आहे !!'),
             duration: Duration(seconds: 3),
           ),
         );
@@ -735,7 +734,7 @@ class _CustomCardCoursesDescriptionState
       if (_formKey.currentState.validate() && result == "") {
         _scaffoldKey.currentState.showSnackBar(
           SnackBar(
-            content: Text('Please complete payment'),
+            content: Text('कृपया देयक पूर्ण करा'),
             duration: Duration(seconds: 3),
           ),
         );
@@ -756,7 +755,7 @@ class _CustomCardCoursesDescriptionState
       return FlatButton(
         color: Colors.blueAccent,
         child: Text(
-          "Complete Payment",
+          "पूर्ण देय",
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () async {
@@ -781,7 +780,7 @@ class _CustomCardCoursesDescriptionState
     );
     if (result == "UpiTransactionStatus.success") {
       _scaffoldKey.currentState.showSnackBar(SnackBar(
-        content: Text("Payment successful!"),
+        content: Text("देय यशस्वी!"),
         duration: Duration(seconds: 2),
       ));
       Future.delayed(Duration(seconds: 2), () {
@@ -790,7 +789,7 @@ class _CustomCardCoursesDescriptionState
     }
     if (result == "UpiTransactionStatus.submitted") {
       _scaffoldKey.currentState.showSnackBar(SnackBar(
-        content: Text("Payment submitted!"),
+        content: Text("पेमेंट सबमिट केले!"),
         duration: Duration(seconds: 2),
       ));
       Future.delayed(Duration(seconds: 2), () {
@@ -799,7 +798,7 @@ class _CustomCardCoursesDescriptionState
     }
     if (result == "UpiTransactionStatus.failure") {
       _scaffoldKey.currentState.showSnackBar(SnackBar(
-        content: Text("Payment Failed.Retry!"),
+        content: Text("देयक अयशस्वी. पुन्हा प्रयत्न करा!"),
         duration: Duration(seconds: 2),
       ));
       Future.delayed(Duration(seconds: 2), () {
@@ -891,14 +890,14 @@ class _CustomCardCoursesDescriptionState
     return Container(
         child: Column(
       children: <Widget>[
-        Text("Participant :" + _sp),
+        Text("सहभागी:" + _sp),
         if (_sp != "1")
           TextFormField(
             controller: mailid,
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.mail_outline),
               contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-              hintText: "Email",
+              hintText: "ईमेल",
               border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                   borderRadius: BorderRadius.circular(5.0)),
@@ -911,7 +910,7 @@ class _CustomCardCoursesDescriptionState
             ),
             validator: (mailid) {
               if (!emailRegex.hasMatch(mailid)) {
-                return 'Please enter valid Email';
+                return 'कृपया वैध ईमेल प्रविष्ट करा';
               }
               return null;
             },
@@ -925,7 +924,7 @@ class _CustomCardCoursesDescriptionState
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.person),
               contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-              hintText: "Name",
+              hintText: "नाव",
               border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                   borderRadius: BorderRadius.circular(5.0)),
@@ -938,7 +937,7 @@ class _CustomCardCoursesDescriptionState
             ),
             validator: (name) {
               if (name.isEmpty) {
-                return 'Please enter Name';
+                return 'नाव प्रविष्ट करा';
               }
               return null;
             },
@@ -952,7 +951,7 @@ class _CustomCardCoursesDescriptionState
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.my_location),
               contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-              hintText: "Address",
+              hintText: "पत्ता",
               border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                   borderRadius: BorderRadius.circular(5.0)),
@@ -965,7 +964,7 @@ class _CustomCardCoursesDescriptionState
             ),
             validator: (address) {
               if (address.isEmpty) {
-                return 'Please enter Address';
+                return 'कृपया पत्ता प्रविष्ट करा';
               }
               return null;
             },
@@ -979,7 +978,7 @@ class _CustomCardCoursesDescriptionState
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.contact_phone),
               contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-              hintText: "Contact No",
+              hintText: "संपर्क क्रमांक",
               border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
                   borderRadius: BorderRadius.circular(5.0)),
@@ -992,7 +991,7 @@ class _CustomCardCoursesDescriptionState
             ),
             validator: (address) {
               if (address.length != 10) {
-                return 'Please enter valid Contact No.';
+                return 'कृपया वैध संपर्क क्रमांक प्रविष्ट करा';
               }
               return null;
             },

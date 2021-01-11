@@ -126,7 +126,7 @@ class _PremiumCodeState extends State<PremiumCode> {
                 contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                 prefixIcon: Icon(Icons.person),
                 fillColor: Colors.white,
-                hintText: "Please Enter Coupon code",
+                hintText: "कृपया कूपन कोड प्रविष्ट करा",
                 border: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white, width: 32.0),
                     borderRadius: BorderRadius.circular(25.0)),
@@ -145,7 +145,7 @@ class _PremiumCodeState extends State<PremiumCode> {
                 checkprem(couppp);
                 addOnStart(data, pcheck);
               },
-              text: "Verify",
+              text: "सत्यापित करा",
               shape: GFButtonShape.pills,
               size: GFSize.LARGE,
             ),
@@ -180,7 +180,7 @@ class _PremiumCodeState extends State<PremiumCode> {
             }
           });
         },
-        text: "Visit App",
+        text: "अ‍ॅपला भेट द्या",
         shape: GFButtonShape.pills,
         size: GFSize.LARGE,
       );
@@ -194,13 +194,13 @@ class _PremiumCodeState extends State<PremiumCode> {
   Widget couponcheck() {
     if (pcheck == true) {
       return Text(
-        "Coupon Verified",
+        "कूपन सत्यापित",
         style: TextStyle(color: Colors.white),
       );
     } else {
       print("In couponcheck");
       return Text(
-        "Please enter a valid coupon code",
+        "कृपया वैध कूपन कोड प्रविष्ट करा",
         style: TextStyle(color: Colors.red),
       );
     }

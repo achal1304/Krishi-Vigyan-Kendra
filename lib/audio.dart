@@ -105,7 +105,7 @@ class _PlayAudioState extends State<PlayAudio> {
                 );
               },
             ),
-            Text("Track position"),
+            Text("ट्रॅक स्थिती"),
             StreamBuilder<Duration>(
               stream: _player.durationStream,
               builder: (context, snapshot) {
@@ -128,7 +128,7 @@ class _PlayAudioState extends State<PlayAudio> {
                 );
               },
             ),
-            Text("Volume"),
+            Text("खंड"),
             StreamBuilder<double>(
               stream: _volumeSubject.stream,
               builder: (context, snapshot) => Slider(
@@ -142,7 +142,7 @@ class _PlayAudioState extends State<PlayAudio> {
                 },
               ),
             ),
-            Text("Speed"),
+            Text("वेग "),
             StreamBuilder<double>(
               stream: _speedSubject.stream,
               builder: (context, snapshot) => Slider(
