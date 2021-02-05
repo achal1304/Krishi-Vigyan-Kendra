@@ -312,6 +312,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 );
               },
             ),
+            /*
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.hamburger,
@@ -330,7 +331,7 @@ class _NormalUsersState extends State<NormalUsers> {
                   ),
                 );
               },
-            ),
+            ),*/
             ListTile(
               onTap: () {
                 Navigator.push(
