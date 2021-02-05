@@ -28,7 +28,7 @@ class _WelcomeState extends State<Welcome> {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   bool isLoading = false;
-  bool prem = true;
+  //bool prem = true;
   AsyncSnapshot<DocumentSnapshot> snapshot1;
   dynamic data;
 
@@ -211,6 +211,7 @@ class _WelcomeState extends State<Welcome> {
 //         // }
 //       },
 //     );
+/*
     final DocumentReference document =
         Firestore.instance.collection("users").document(user.uid);
 
@@ -221,7 +222,8 @@ class _WelcomeState extends State<Welcome> {
         });
       }
     });
-
+*/
+/*
     print("Value of premiumm  welcome.dart file is ************ = " +
         prem.toString());
 
@@ -236,15 +238,15 @@ class _WelcomeState extends State<Welcome> {
         ),
       );
     } else {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePageL(
-            user,
-            _googleSignIn,
-          ),
+      */
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePageL(
+          user,
+          _googleSignIn,
         ),
-      );
-    }
+      ),
+    );
   }
 }
