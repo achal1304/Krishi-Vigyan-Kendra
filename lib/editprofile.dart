@@ -423,7 +423,7 @@ class _EditProfileState extends State<EditProfile> {
                         onError: onError,
                         mode: Mode.fullscreen,
                         // Mode.fullscreen
-                        language: "en",
+                        language: "mr",
                         components: [new Component(Component.country, "in")]);
                     // showDetailPlace(p.placeId);
                   } catch (e) {
@@ -555,7 +555,7 @@ class _EditProfileState extends State<EditProfile> {
                       groupValue: id,
                       onChanged: (val) {
                         setState(() {
-                          radioButtonItem = 'Male';
+                          radioButtonItem = 'नर';
                           id = 1;
                         });
                       },
@@ -569,7 +569,7 @@ class _EditProfileState extends State<EditProfile> {
                       groupValue: id,
                       onChanged: (val) {
                         setState(() {
-                          radioButtonItem = 'Female';
+                          radioButtonItem = 'स्त्री';
                           id = 2;
                         });
                       },
@@ -585,7 +585,7 @@ class _EditProfileState extends State<EditProfile> {
                       groupValue: id,
                       onChanged: (val) {
                         setState(() {
-                          radioButtonItem = 'Other';
+                          radioButtonItem = 'इतर';
                           id = 3;
                         });
                       },
@@ -760,7 +760,7 @@ class _EditProfileState extends State<EditProfile> {
           onError: onError,
           mode: Mode.fullscreen,
           // Mode.fullscreen
-          language: "en",
+          language: "mr",
           components: [new Component(Component.country, "in")]);
       // showDetailPlace(p.placeId);
     } catch (e) {

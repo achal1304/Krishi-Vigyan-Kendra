@@ -83,7 +83,7 @@ class _HomePageLState extends State<HomePageL> {
             height: 15,
           ),
           Text(
-            'स्वागत आहेs ${widget._user.displayName}!',
+            'स्वागत आहे ${widget._user.displayName}!',
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,

@@ -37,13 +37,13 @@ class ContactScreen extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   onTap: () {
-                    Clipboard.setData(ClipboardData(text: '+918411845000'));
+                    Clipboard.setData(ClipboardData(text: '02465-227757'));
                     Toast.show("Number copied to clipboard", context,
                         duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                   },
                   // title: Text('Phone Number : '),
                   title: Text('फोन नंबर: '),
-                  subtitle: Text('+91 8411845000'),
+                  subtitle: Text('02465-227757'),
                   trailing: Icon(Icons.phone),
                 ),
               ],
@@ -56,12 +56,12 @@ class ContactScreen extends StatelessWidget {
                 ListTile(
                   onTap: () {
                     Clipboard.setData(
-                        ClipboardData(text: 'nvcc@iskconpune.in'));
+                        ClipboardData(text: 'kvksagroli@gmail.com'));
                     Toast.show("Email copied to clipboard", context,
                         duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                   },
                   title: Text('ईमेल:'),
-                  subtitle: Text('nvcc@iskconpune.in'),
+                  subtitle: Text('kvksagroli@gmail.com'),
                   trailing: Icon(Icons.alternate_email),
                 ),
               ],

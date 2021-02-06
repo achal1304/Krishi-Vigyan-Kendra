@@ -378,7 +378,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                   prefixIcon: Icon(Icons.person),
-                  hintText: data['नाव'],
+                  hintText: data['Name'],
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blueAccent, width: 32.0),
@@ -402,7 +402,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                   prefixIcon: Icon(Icons.my_location),
-                  hintText: data['पत्ता'],
+                  hintText: data['Address'],
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.blueAccent, width: 32.0),
@@ -422,7 +422,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                         onError: onError,
                         mode: Mode.fullscreen,
                         // Mode.fullscreen
-                        language: "en",
+                        language: "mr",
                         components: [new Component(Component.country, "in")]);
                     // showDetailPlace(p.placeId);
                   } catch (e) {
@@ -549,7 +549,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                       groupValue: id,
                       onChanged: (val) {
                         setState(() {
-                          radioButtonItem = 'Male';
+                          radioButtonItem = 'नर';
                           id = 1;
                         });
                       },
@@ -563,7 +563,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                       groupValue: id,
                       onChanged: (val) {
                         setState(() {
-                          radioButtonItem = 'Female';
+                          radioButtonItem = 'स्त्री';
                           id = 2;
                         });
                       },
@@ -579,7 +579,7 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                       groupValue: id,
                       onChanged: (val) {
                         setState(() {
-                          radioButtonItem = 'Other';
+                          radioButtonItem = 'इतर';
                           id = 3;
                         });
                       },

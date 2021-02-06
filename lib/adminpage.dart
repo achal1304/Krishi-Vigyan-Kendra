@@ -617,7 +617,7 @@ class _AdminPageState extends State<AdminPage> {
           title: Padding(
             padding: const EdgeInsets.only(top: 34),
             child: Text(
-              'हरे कृष्ण!',
+              'कृषी विज्ञान केंद्र!',
               textScaleFactor: 1.7,
               style: GoogleFonts.courgette(
                 textStyle: TextStyle(color: Colors.black),

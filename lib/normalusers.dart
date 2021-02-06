@@ -153,7 +153,7 @@ class _NormalUsersState extends State<NormalUsers> {
         child: AppBar(
           elevation: 0.5,
           leading: IconButton(
-            padding: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.only(top: 20),
             icon: Image(
               image: AssetImage('assets/sanskriti samvardhan mandal.png'),
               // color: Colors.black,
@@ -177,7 +177,7 @@ class _NormalUsersState extends State<NormalUsers> {
           title: Padding(
             padding: const EdgeInsets.only(top: 34),
             child: Text(
-              'हरे कृष्ण!',
+              'कृषी विज्ञान केंद्र',
               textScaleFactor: 1.7,
               style: GoogleFonts.courgette(
                 textStyle: TextStyle(color: Colors.black),
@@ -395,7 +395,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 FontAwesomeIcons.infoCircle,
                 size: 23.0,
               ),
-              title: Text('इस्कॉन बद्दल'),
+              title: Text('के.व्ही.के. बद्दल'),
               onTap: () {
                 Navigator.push(
                   context,
