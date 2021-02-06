@@ -372,7 +372,7 @@ packages:
       name: google_maps_webservice
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.18"
+    version: "0.0.19"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -718,6 +718,13 @@ packages:
     dependency: "direct main"
     description:
       name: toast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.5"
+  translator:
+    dependency: "direct main"
+    description:
+      name: translator
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.5"

@@ -31,7 +31,7 @@ dependencies:
   flutter_share: ^1.0.3
   date_range_picker: any
   flutter_google_places: ^0.2.6
-  google_maps_webservice: ^0.0.17
+  google_maps_webservice: ^0.0.19
   upi_pay: ^0.2.1
   #firebase_database: any
   cloud_firestore: ^0.13.7
@@ -62,6 +62,7 @@ dependencies:
   #upi_india: ^2.0.0
   youtube_player_flutter: any
   weather: ^1.2.4
+  translator: ^0.1.5
 
 dev_dependencies:
   flutter_test:
