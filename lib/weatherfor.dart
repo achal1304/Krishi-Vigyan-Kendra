@@ -42,6 +42,7 @@ class _WeatherForeState extends State<WeatherFore> {
   TextEditingController address = TextEditingController();
   final places =
       new GoogleMapsPlaces(apiKey: "AIzaSyDA2vSkZdEb9_8Gz-ivOP1vW8QOu01xEW0");
+  bool _isAddEditable = false;
 
   @override
   void initState() {
@@ -148,49 +149,68 @@ class _WeatherForeState extends State<WeatherFore> {
   }
 
   Widget _placesLatLob() {
-    return Expanded(
-        child: Container(
-      margin: EdgeInsets.all(5),
-      child: TextFormField(
-        controller: address,
-        decoration: InputDecoration(
-          // contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          prefixIcon: Icon(Icons.my_location),
-          hintText: "Address",
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: Theme.of(context).scaffoldBackgroundColor, width: 32.0),
-            borderRadius: BorderRadius.circular(25.0),
-          ),
-        ),
-        onTap: () async {
-          try {
-            p = await PlacesAutocomplete.show(
-                context: context,
-                apiKey: kGoogleApiKey,
-                mode: Mode.fullscreen,
-                // Mode.fullscreen
-                language: "mr",
-                components: [new Component(Component.country, "in")]);
-            // showDetailPlace(p.placeId);
-          } catch (e) {
-            return;
-          }
+    return Row(
+      children: <Widget>[
+        Expanded(
+            child: Container(
+          margin: EdgeInsets.all(5),
+          child: TextFormField(
+            controller: address,
+            decoration: InputDecoration(
+              // contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              prefixIcon: Icon(Icons.my_location),
+              hintText: "Address",
+              enabled: _isAddEditable,
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    width: 32.0),
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+            ),
+            onTap: () async {
+              try {
+                p = await PlacesAutocomplete.show(
+                    context: context,
+                    apiKey: kGoogleApiKey,
+                    mode: Mode.fullscreen,
+                    // Mode.fullscreen
+                    language: "mr",
+                    components: [new Component(Component.country, "in")]);
+                // showDetailPlace(p.placeId);
+              } catch (e) {
+                return;
+              }
 
-          setState(() {
-            if (p.description != null) {
-              address.text = p.description;
-              displayPrediction(p);
-            } else
-              address.text = "";
-          });
+              setState(() {
+                if (p.description != null) {
+                  address.text = p.description;
+                  displayPrediction(p);
+                } else
+                  address.text = "";
+              });
 //                  _handlePressButton();
-        },
-      ),
-    ));
+            },
+          ),
+        )),
+        Container(
+          margin: EdgeInsets.only(left: 8),
+          child: IconButton(
+            icon: Icon(
+              _isAddEditable ? Icons.check : Icons.edit,
+            ),
+            onPressed: () {
+              setState(() {
+                _isAddEditable = !_isAddEditable;
+              });
+            },
+          ),
+        )
+      ],
+    );
   }
 
   displayPrediction(Prediction p) async {
