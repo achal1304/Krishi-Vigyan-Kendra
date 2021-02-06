@@ -61,6 +61,7 @@ dependencies:
   file_picker: 1.7.0
   #upi_india: ^2.0.0
   youtube_player_flutter: any
+  weather: ^1.2.4
 
 dev_dependencies:
   flutter_test:

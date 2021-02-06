@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
+import 'package:loginkvk/weatherfor.dart';
 import 'demo.dart';
 import 'donate.dart';
 import 'editprofile.dart';
@@ -286,6 +287,24 @@ class _NormalUsersState extends State<NormalUsers> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => ViewCourses(
+                      widget._user,
+                      widget._googleSignIn,
+                    ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: FaIcon(
+                FontAwesomeIcons.cloudMoonRain,
+                size: 28.0,
+              ),
+              title: Text('हवामान'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WeatherFore(
                       widget._user,
                       widget._googleSignIn,
                     ),
