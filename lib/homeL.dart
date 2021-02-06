@@ -137,7 +137,7 @@ class _HomePageLState extends State<HomePageL> {
               height: 10,
             ),
             Text(
-              'कृपया प्रथम नोंदणी करा!s',
+              'कृपया प्रथम नोंदणी करा!',
               style: TextStyle(
                 decoration: TextDecoration.none,
                 fontSize: 15,
@@ -170,9 +170,11 @@ class _HomePageLState extends State<HomePageL> {
         ),
       );
     }
+    print("before test");
     if (snapshot.data['admin'] == true) {
       return adminPage(snapshot);
-    } else if (snapshot.data["premium"] == true) {
+    } else {
+      print("going to the user page");
       return userPage(snapshot);
     }
   }

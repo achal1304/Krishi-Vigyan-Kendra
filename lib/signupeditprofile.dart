@@ -14,7 +14,7 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
-
+import 'homeL.dart';
 import 'crud.dart';
 import 'normalusers.dart';
 import 'premium.dart';
@@ -746,7 +746,8 @@ class _SignUpEditProfileState extends State<SignUpEditProfile> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PremiumCode(
+                    //builder: (context) => PremiumCode(
+                    builder: (context) => HomePageL(
                       widget._user,
                       widget._googleSignIn,
                     ),

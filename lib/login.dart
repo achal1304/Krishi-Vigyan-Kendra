@@ -151,6 +151,7 @@ class _LoginState extends State<Login> {
 //         }
 //       },
 //     );
+/*
     final DocumentReference document =
         Firestore.instance.collection("users").document(user.uid);
 
@@ -172,15 +173,15 @@ class _LoginState extends State<Login> {
         ),
       );
     } else {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePageL(
-            user,
-            _googleSignIn,
-          ),
+      */
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePageL(
+          user,
+          _googleSignIn,
         ),
-      );
-    }
+      ),
+    );
   }
 }
