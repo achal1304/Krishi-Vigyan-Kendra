@@ -6,6 +6,7 @@
  */
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:async';
 import 'package:weather/weather.dart';
@@ -60,11 +61,16 @@ class _WeatherForeState extends State<WeatherFore> {
     List<Weather> forecasts = await ws.fiveDayForecastByLocation(lat, lon);
     setState(() {
       _data = forecasts;
+      _translateddata = _data.toString();
       _state = AppState.FINISHED_DOWNLOADING;
     });
-    _translateddata =
-        await translator.translate(_data.toString(), from: 'en', to: 'mr');
-    print(_translateddata.toString());
+    // _translateddata =
+    //     await translator.translate(_data.toString(), from: 'en', to: 'mr');
+    // print(_translateddata.toString());
+
+    // setState(() {
+    //   _state = AppState.FINISHED_DOWNLOADING;
+    // });
   }
 
   void queryWeather() async {
@@ -78,12 +84,16 @@ class _WeatherForeState extends State<WeatherFore> {
     Weather weather = await ws.currentWeatherByLocation(lat, lon);
     setState(() {
       _data = [weather];
-      _state = AppState.FINISHED_DOWNLOADING;
+      // _state = AppState.FINISHED_DOWNLOADING;
     });
 
     _translateddata =
         await translator.translate(_data.toString(), from: 'en', to: 'mr');
     print(_translateddata.toString());
+
+    setState(() {
+      _state = AppState.FINISHED_DOWNLOADING;
+    });
   }
 
   Widget contentFinishedDownload() {
@@ -110,7 +120,7 @@ class _WeatherForeState extends State<WeatherFore> {
         margin: EdgeInsets.all(25),
         child: Column(children: [
           Text(
-            'Fetching Weather...',
+            'हवामान प्राप्त करीत आहे ...',
             style: TextStyle(fontSize: 20),
           ),
           Container(
@@ -125,7 +135,7 @@ class _WeatherForeState extends State<WeatherFore> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'Press the button to download the Weather forecast',
+            'हवामान अंदाज पाहण्यासाठी बटण दाबा',
           ),
         ],
       ),
@@ -159,7 +169,7 @@ class _WeatherForeState extends State<WeatherFore> {
             decoration: InputDecoration(
               // contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
               prefixIcon: Icon(Icons.my_location),
-              hintText: "Address",
+              hintText: "पत्ता",
               enabled: _isAddEditable,
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blueAccent, width: 32.0),
@@ -194,6 +204,12 @@ class _WeatherForeState extends State<WeatherFore> {
               });
 //                  _handlePressButton();
             },
+            onEditingComplete: () {
+              displayPrediction(p);
+            },
+            // : (address) {
+            //   displayPrediction(p);
+            // },
           ),
         )),
         Container(
@@ -219,57 +235,59 @@ class _WeatherForeState extends State<WeatherFore> {
           await places.getDetailsByPlaceId(p.placeId);
 
       // var placeId = p.placeId;
-      lat = detail.result.geometry.location.lat;
-      lon = detail.result.geometry.location.lng;
+      setState(() {
+        lat = detail.result.geometry.location.lat;
+        lon = detail.result.geometry.location.lng;
 
-      _saveLat(lat.toString());
-      _saveLon(lon.toString());
-      print(lat);
-      print(lon);
+        _saveLat(lat.toString());
+        _saveLon(lon.toString());
+        print(lat);
+        print(lon);
+      });
     }
   }
 
-  Widget _coordinateInputs() {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: Container(
-              margin: EdgeInsets.all(5),
-              child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: lat.toString(),
-                    labelText: 'Enter Latitude',
-                  ),
-                  keyboardType: TextInputType.number,
-                  onChanged: _saveLat,
-                  onSubmitted: _saveLat)),
-        ),
-        Expanded(
-            child: Container(
-                margin: EdgeInsets.all(5),
-                child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: lon.toString(),
-                      labelText: 'Enter Longitude',
-                    ),
-                    keyboardType: TextInputType.number,
-                    onChanged: _saveLon,
-                    onSubmitted: _saveLon)))
-      ],
-    );
-  }
+  // Widget _coordinateInputs() {
+  //   return Row(
+  //     children: <Widget>[
+  //       Expanded(
+  //         child: Container(
+  //             margin: EdgeInsets.all(5),
+  //             child: TextField(
+  //                 decoration: InputDecoration(
+  //                   border: OutlineInputBorder(),
+  //                   hintText: lat.toString(),
+  //                   labelText: 'Enter Latitude',
+  //                 ),
+  //                 keyboardType: TextInputType.number,
+  //                 onChanged: _saveLat,
+  //                 onSubmitted: _saveLat)),
+  //       ),
+  //       Expanded(
+  //           child: Container(
+  //               margin: EdgeInsets.all(5),
+  //               child: TextField(
+  //                   decoration: InputDecoration(
+  //                     border: OutlineInputBorder(),
+  //                     hintText: lon.toString(),
+  //                     labelText: 'Enter Longitude',
+  //                   ),
+  //                   keyboardType: TextInputType.number,
+  //                   onChanged: _saveLon,
+  //                   onSubmitted: _saveLon)))
+  //     ],
+  //   );
+  // }
 
   Widget _buttons() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          margin: EdgeInsets.all(5),
+          margin: EdgeInsets.all(10),
           child: FlatButton(
             child: Text(
-              'Fetch weather',
+              'हवामान मिळवा',
               style: TextStyle(color: Colors.white),
             ),
             onPressed: queryWeather,
@@ -277,10 +295,10 @@ class _WeatherForeState extends State<WeatherFore> {
           ),
         ),
         Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.all(10),
             child: FlatButton(
               child: Text(
-                'Fetch forecast',
+                'अंदाज आणा',
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: queryForecast,
@@ -295,7 +313,22 @@ class _WeatherForeState extends State<WeatherFore> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text('Weather Example App'),
+            centerTitle: true,
+            title: Text(
+              'हवामान',
+              style: TextStyle(color: Colors.black),
+              textScaleFactor: 1.2,
+            ),
+            backgroundColor: Colors.white,
+            elevation: 0.5,
+            leading: IconButton(
+              icon: FaIcon(Icons.arrow_back_ios),
+              color: Colors.black,
+              iconSize: 35,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
           body: Column(
             children: <Widget>[
@@ -303,7 +336,7 @@ class _WeatherForeState extends State<WeatherFore> {
               // _coordinateInputs(),
               _buttons(),
               Text(
-                'Output:',
+                'आउटपुट:',
                 style: TextStyle(fontSize: 20),
               ),
               Divider(
