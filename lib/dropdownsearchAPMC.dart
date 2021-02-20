@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart';
 import 'forAPMC/repository.dart';
+import 'package:translator/translator.dart';
 
 import 'forAPMC/post_model.dart';
+
+const kGoogleApiKey = "AIzaSyDA2vSkZdEb9_8Gz-ivOP1vW8QOu01xEW0";
 
 class DropDownSearchmenuuu extends StatefulWidget {
   @override
@@ -14,6 +17,11 @@ class DropDownSearchmenuuu extends StatefulWidget {
 }
 
 class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
+  final translator = GoogleTranslator();
+  var _translateddata;
+  String sttt = "";
+  String disttt = "";
+  String commdtt = "";
   final String postUrl =
       "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd00000133f585e2c6a244007be46a15bdf9ecf0&format=json&offset=0&limit=100";
   String s = "Andhra Pradesh";
@@ -23,8 +31,12 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
   Future<List<Post>> getPosts() async {
     // Map<String, String> queryParams = {"state": "Maharashtra"};
     // String queryString = Uri(queryParameters: queryParams).query;
-    String queryStringState = "filters[state]=" + _selectedState;
-    String queryStringDistrict = "filters[district]=" + _selectedLGA;
+    sttt = await translateanyString(_selectedState);
+    disttt = await translateanyString(_selectedLGA);
+    print(sttt + disttt);
+
+    String queryStringState = "filters[state]=" + sttt;
+    String queryStringDistrict = "filters[district]=" + disttt;
     String queryStringCommodity = "filters[commodity]=" + commodityy;
     var requestUrl = postUrl +
         '&' +
@@ -41,6 +53,14 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
     if (res.statusCode == 200) {
       var data = jsonDecode(res.body);
       var rest = data["records"] as List;
+
+      // String a = rest.join("###");
+      // print("String a is :  " + a);
+      // String tra = await translateanyStringtomarathi(a);
+      // print("Tra is :  " + tra.toString());
+      // var restresult = tra.toString().split('###');
+      // print("restresult is :  " + restresult.toString());
+
       print(rest);
       // List<dynamic> body = jsonDecode(res.body);
 
@@ -48,6 +68,14 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
       //     body.map((dynamic item) => Post.fromJson(item)).toList();
 
       list = rest.map<Post>((json) => Post.fromJson(json)).toList();
+
+      // String a = list.join("###");
+      // print("String a is :  " + a);
+      // String tra = await translateanyStringtomarathi(a);
+      // print("Tra is :  " + tra.toString());
+      // var restresult = tra.toString().split('###');
+      // print("restresult is :  " + restresult.toString());
+
       templist = list;
       return list;
     } else {
@@ -63,6 +91,18 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
   String _selectedLGA = "Choose ..";
   String commo = "";
   String commodityy = "";
+
+  Future<String> translateanyString(String _datatobetranslated) async {
+    _translateddata =
+        await translator.translate(_datatobetranslated, from: 'mr', to: 'en');
+    return _translateddata.toString();
+  }
+
+  Future<String> translateanyStringtomarathi(String _datatobetranslated) async {
+    _translateddata =
+        await translator.translate(_datatobetranslated, from: 'en', to: 'mr');
+    return _translateddata.toString();
+  }
 
   @override
   void initState() {
@@ -776,6 +816,9 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
                 label: "Commodities",
                 onChanged: (result) {
                   setState(() {
+                    // translateanyString(result).then((value) {
+                    //   commdtt = value;
+                    // });
                     commo = result;
                     commodityy = commo.replaceAll(RegExp('\\s'), '%20');
                     print("selected cmmodity" + commodityy);
@@ -873,7 +916,13 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
     });
   }
 
-  void _onSelectedLGA(String value) {
-    setState(() => _selectedLGA = value);
+  void _onSelectedLGA(String value) async {
+    // String ttt = await translateanyString(value);
+
+    // setState(() => _selectedLGA = value);
+    setState(() {
+      // print(value);
+      _selectedLGA = value;
+    });
   }
 }
