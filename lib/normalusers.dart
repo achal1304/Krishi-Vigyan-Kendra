@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
+import 'package:loginkvk/dropdownsearchAPMC.dart';
 import 'package:loginkvk/weatherfor.dart';
 import 'demo.dart';
 import 'donate.dart';
@@ -308,6 +309,24 @@ class _NormalUsersState extends State<NormalUsers> {
                       widget._user,
                       widget._googleSignIn,
                     ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: FaIcon(
+                FontAwesomeIcons.seedling,
+                size: 28.0,
+              ),
+              title: Text('उत्पादनांचे बाजार दर'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DropDownSearchmenuuu(
+                        // widget._user,
+                        // widget._googleSignIn,
+                        ),
                   ),
                 );
               },

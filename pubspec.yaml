@@ -63,6 +63,10 @@ dependencies:
   youtube_player_flutter: any
   weather: ^1.2.4
   translator: ^0.1.5
+  http: 
+  basic_utils: ^1.4.0
+  searchable_dropdown: ^1.1.3
+  dropdown_search: ^0.4.8
 
 dev_dependencies:
   flutter_test:

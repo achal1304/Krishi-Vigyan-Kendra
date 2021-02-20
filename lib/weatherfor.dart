@@ -61,16 +61,16 @@ class _WeatherForeState extends State<WeatherFore> {
     List<Weather> forecasts = await ws.fiveDayForecastByLocation(lat, lon);
     setState(() {
       _data = forecasts;
-      _translateddata = _data.toString();
+      // _translateddata = _data.toString();
+      // _state = AppState.FINISHED_DOWNLOADING;
+    });
+    _translateddata =
+        await translator.translate(_data.toString(), from: 'en', to: 'mr');
+    print(_translateddata.toString());
+
+    setState(() {
       _state = AppState.FINISHED_DOWNLOADING;
     });
-    // _translateddata =
-    //     await translator.translate(_data.toString(), from: 'en', to: 'mr');
-    // print(_translateddata.toString());
-
-    // setState(() {
-    //   _state = AppState.FINISHED_DOWNLOADING;
-    // });
   }
 
   void queryWeather() async {
