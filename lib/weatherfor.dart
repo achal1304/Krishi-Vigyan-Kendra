@@ -36,6 +36,7 @@ class _WeatherForeState extends State<WeatherFore> {
   String key = 'c5a7cdb13e89746a2bd5ad742e8d2c40';
   WeatherFactory ws;
   List<Weather> _data = [];
+  List<String> weathertoday;
   var _translateddata;
   AppState _state = AppState.NOT_DOWNLOADED;
   double lat, lon;
@@ -60,17 +61,32 @@ class _WeatherForeState extends State<WeatherFore> {
 
     List<Weather> forecasts = await ws.fiveDayForecastByLocation(lat, lon);
     setState(() {
-      _data = forecasts;
+      _data = forecasts.sublist(1, 20);
       // _translateddata = _data.toString();
       // _state = AppState.FINISHED_DOWNLOADING;
     });
-    _translateddata =
-        await translator.translate(_data.toString(), from: 'en', to: 'mr');
+
+    String a = _data.join("    ");
+    print(a);
+
+    _translateddata = await translator.translate(a, from: 'en', to: 'mr');
     print(_translateddata.toString());
+
+    weathertoday = _translateddata.toString().split("    ");
+
+    // _translateddata =
+    //     await translator.translate(_data.toString(), from: 'en', to: 'mr');
+    // print(_translateddata.toString());
 
     setState(() {
       _state = AppState.FINISHED_DOWNLOADING;
     });
+  }
+
+  Future<String> translateanyStringtomarathi(String _datatobetranslated) async {
+    _translateddata =
+        await translator.translate(_datatobetranslated, from: 'en', to: 'mr');
+    return _translateddata.toString();
   }
 
   void queryWeather() async {
@@ -87,9 +103,13 @@ class _WeatherForeState extends State<WeatherFore> {
       // _state = AppState.FINISHED_DOWNLOADING;
     });
 
-    _translateddata =
-        await translator.translate(_data.toString(), from: 'en', to: 'mr');
+    String a = _data.join("RRRRR");
+    print(a);
+
+    _translateddata = await translator.translate(a, from: 'en', to: 'mr');
     print(_translateddata.toString());
+
+    weathertoday = _translateddata.toString().split("RRRRR");
 
     setState(() {
       _state = AppState.FINISHED_DOWNLOADING;
@@ -98,19 +118,18 @@ class _WeatherForeState extends State<WeatherFore> {
 
   Widget contentFinishedDownload() {
     return Center(
-      child: ListView.separated(
-        itemCount: _data.length,
+      child: ListView.builder(
+        itemCount: weathertoday.length,
         itemBuilder: (context, index) {
+          final weathertoddata = weathertoday[index];
           // return ListTile(
           //   title: Text(_data[index].toString()),
           // );
-          return ListTile(
-            title: Text(_translateddata.toString()),
-          );
+          return ListTile(title: Text(weathertoddata));
         },
-        separatorBuilder: (context, index) {
-          return Divider();
-        },
+        // separatorBuilder: (context, index) {
+        //   return Divider();
+        // },
       ),
     );
   }
