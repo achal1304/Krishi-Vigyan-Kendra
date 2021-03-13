@@ -16,6 +16,7 @@ import 'addaudio.dart';
 import 'addaudio.dart';
 import 'audio.dart';
 import 'audiolist.dart';
+import 'filesupload.dart';
 import 'makeadmin.dart';
 import 'picker.dart';
 import 'viewvideo.dart';
@@ -699,25 +700,25 @@ class _AdminPageState extends State<AdminPage> {
               );
             },
           ),
-          ListTile(
-            leading: FaIcon(
-              FontAwesomeIcons.podcast,
-              size: 28.0,
-            ),
-            title: Text('ऑडिओ ऐका'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AudioList(
-                    isAdmin: true,
-                    //widget._user,
-                    //widget._googleSignIn,
-                  ),
-                ),
-              );
-            },
-          ),
+          // ListTile(
+          //   leading: FaIcon(
+          //     FontAwesomeIcons.podcast,
+          //     size: 28.0,
+          //   ),
+          //   title: Text('ऑडिओ ऐका'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => AudioList(
+          //           isAdmin: true,
+          //           //widget._user,
+          //           //widget._googleSignIn,
+          //         ),
+          //       ),
+          //     );
+          //   },
+          // ),
           ListTile(
             leading: FaIcon(
               FontAwesomeIcons.microphoneAlt,
@@ -728,7 +729,7 @@ class _AdminPageState extends State<AdminPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddAudio(
+                  builder: (context) => FilePickerDemo(
                       //widget._user,
                       //widget._googleSignIn,
                       ),

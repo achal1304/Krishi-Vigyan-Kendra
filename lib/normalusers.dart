@@ -15,6 +15,7 @@ import 'package:loginkvk/weatherfor.dart';
 import 'demo.dart';
 import 'donate.dart';
 import 'editprofile.dart';
+import 'filesupload.dart';
 import 'picker.dart';
 import 'viewcourses.dart';
 import 'viewvideo.dart';
@@ -251,11 +252,11 @@ class _NormalUsersState extends State<NormalUsers> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AudioList(
-                      isAdmin: false,
-                      //widget._user,
-                      //widget._googleSignIn,
-                    ),
+                    builder: (context) => FilePickerDemo(
+                        // isAdmin: false,
+                        //widget._user,
+                        //widget._googleSignIn,
+                        ),
                   ),
                 );
               },
