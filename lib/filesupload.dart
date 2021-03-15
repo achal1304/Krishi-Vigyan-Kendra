@@ -1,6 +1,11 @@
+import 'dart:html';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path/path.dart' as Path;
 
 class FilePickerDemo extends StatefulWidget {
   @override
@@ -11,6 +16,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String _fileName;
   List<PlatformFile> _paths;
+  // PlatformFile _paths;
   String _directoryPath;
   String _extension;
   bool _loadingPath = false;
@@ -29,11 +35,9 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
     try {
       _directoryPath = null;
       _paths = (await FilePicker.platform.pickFiles(
-        type: _pickingType,
+        type: FileType.custom,
         allowMultiple: _multiPick,
-        allowedExtensions: (_extension?.isNotEmpty ?? false)
-            ? _extension?.replaceAll(' ', '')?.split(',')
-            : null,
+        allowedExtensions: ['jpg', 'pdf', 'doc'],
       ))
           ?.files;
     } on PlatformException catch (e) {
@@ -220,5 +224,261 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
         )),
       ),
     );
+  }
+ List<PlatformFile> _sampleImage;
+  final FirebaseStorage _storage =
+      FirebaseStorage(storageBucket: 'gs://kvk-iskcon.appspot.com');
+
+  StorageUploadTask _uploadTask;
+
+  String imgUrl = "";
+
+  Widget builddd(BuildContext context) {
+    if (_uploadTask != null) {
+      return StreamBuilder<StorageTaskEvent>(
+        stream: _uploadTask.events,
+        builder: (context, snapshot) {
+          var event = snapshot?.data?.snapshot;
+
+          double progressPercent =
+              event != null ? event.bytesTransferred / event.totalByteCount : 0;
+
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (_uploadTask.isComplete)
+                Text('प्रतिमा यशस्वीरित्या अपलोड केली!',
+                    style: TextStyle(
+                        // color: Colors.greenAccent,
+                        height: 2,
+                        fontSize: 20)),
+              if (_uploadTask.isInProgress)
+                Column(
+                  children: <Widget>[
+                    LinearProgressIndicator(value: progressPercent),
+                    Text(
+                      '${(progressPercent * 100).toStringAsFixed(2)} % ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+            ],
+          );
+        },
+      );
+    } else {
+      return Column(
+        children: <Widget>[
+          ButtonTheme(
+            minWidth: MediaQuery.of(context).size.width * 0.4,
+            child: FlatButton.icon(
+                color: Colors.blue,
+                label: Text(
+                  'अपलोड करा',
+                  style: TextStyle(color: Colors.white),
+                ),
+                icon: Icon(
+                  Icons.cloud_upload,
+                  color: Colors.white,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                onPressed: () {
+                  startUpload().then((v) => setState(() {
+                        imgUrl = v;
+                        addTo(imgUrl);
+                      }));
+                  //addTo(imgUrl);
+
+                  //addTo(imgUrl);
+                }),
+          ),
+        ],
+      );
+    }
+  }
+
+  Future<String> startUpload() async {
+    // File f = File(filesss[0].path)
+    // File f = File(widget.filess.path);
+    for (int i =0;i<_paths.length;i++){
+
+      List<File> f;
+      File fii = File(_paths[i].path);
+    
+    String filePath = '/daily/${Path.basename(_paths[i].path)}';
+
+    setState(() {
+      _uploadTask = _storage.ref().child(filePath).putFile(_paths[i].path);
+    });
+    final StorageTaskSnapshot downloadUrl = (await _uploadTask.onComplete);
+    final String url = (await downloadUrl.ref.getDownloadURL());
+
+    return url;
+    }
+    
+  }
+
+  addTo(String url) async {
+    String date;
+    DocumentReference documentRef;
+
+    documentRef = Firestore.instance.collection("daily").document(date);
+
+    final ss =
+        await Firestore.instance.collection("daily").document(date).get();
+    if (ss.exists) {
+      Firestore.instance.runTransaction(
+        (transaction) async {
+          await documentRef.updateData({
+            'url': FieldValue.arrayUnion([url])
+          });
+          print("daily darshan Data added!");
+        },
+      );
+    } else {
+      Firestore.instance.runTransaction(
+        (transaction) async {
+          await documentRef.setData({
+            'url': FieldValue.arrayUnion([url])
+          });
+          print("daily darshan Data added!");
+        },
+      );
+    }
+  }
+}
+
+}
+
+class Uploader extends StatefulWidget {
+  final List<PlatformFile> filess;
+
+  const Uploader({Key key, this.filess}) : super(key: key);
+  @override
+  _UploaderState createState() => _UploaderState();
+}
+
+class _UploaderState extends State<Uploader> {
+  List<PlatformFile> _sampleImage;
+  final FirebaseStorage _storage =
+      FirebaseStorage(storageBucket: 'gs://kvk-iskcon.appspot.com');
+
+  StorageUploadTask _uploadTask;
+
+  String imgUrl = "";
+
+  @override
+  Widget build(BuildContext context) {
+    if (_uploadTask != null) {
+      return StreamBuilder<StorageTaskEvent>(
+        stream: _uploadTask.events,
+        builder: (context, snapshot) {
+          var event = snapshot?.data?.snapshot;
+
+          double progressPercent =
+              event != null ? event.bytesTransferred / event.totalByteCount : 0;
+
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (_uploadTask.isComplete)
+                Text('प्रतिमा यशस्वीरित्या अपलोड केली!',
+                    style: TextStyle(
+                        // color: Colors.greenAccent,
+                        height: 2,
+                        fontSize: 20)),
+              if (_uploadTask.isInProgress)
+                Column(
+                  children: <Widget>[
+                    LinearProgressIndicator(value: progressPercent),
+                    Text(
+                      '${(progressPercent * 100).toStringAsFixed(2)} % ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                ),
+            ],
+          );
+        },
+      );
+    } else {
+      return Column(
+        children: <Widget>[
+          ButtonTheme(
+            minWidth: MediaQuery.of(context).size.width * 0.4,
+            child: FlatButton.icon(
+                color: Colors.blue,
+                label: Text(
+                  'अपलोड करा',
+                  style: TextStyle(color: Colors.white),
+                ),
+                icon: Icon(
+                  Icons.cloud_upload,
+                  color: Colors.white,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                onPressed: () {
+                  startUpload().then((v) => setState(() {
+                        imgUrl = v;
+                        addTo(imgUrl);
+                      }));
+                  //addTo(imgUrl);
+
+                  //addTo(imgUrl);
+                }),
+          ),
+        ],
+      );
+    }
+  }
+
+  Future<String> startUpload() async {
+    // File f = File(filesss[0].path)
+    // File f = File(widget.filess.path);
+
+    String filePath = '/daily/${Path.basename(widget.filess.path)}';
+
+    setState(() {
+      _uploadTask = _storage.ref().child(filePath).putFile(widget.filess.path);
+    });
+    final StorageTaskSnapshot downloadUrl = (await _uploadTask.onComplete);
+    final String url = (await downloadUrl.ref.getDownloadURL());
+
+    return url;
+  }
+
+  addTo(String url) async {
+    String date;
+    DocumentReference documentRef;
+
+    documentRef = Firestore.instance.collection("daily").document(date);
+
+    final ss =
+        await Firestore.instance.collection("daily").document(date).get();
+    if (ss.exists) {
+      Firestore.instance.runTransaction(
+        (transaction) async {
+          await documentRef.updateData({
+            'url': FieldValue.arrayUnion([url])
+          });
+          print("daily darshan Data added!");
+        },
+      );
+    } else {
+      Firestore.instance.runTransaction(
+        (transaction) async {
+          await documentRef.setData({
+            'url': FieldValue.arrayUnion([url])
+          });
+          print("daily darshan Data added!");
+        },
+      );
+    }
   }
 }
