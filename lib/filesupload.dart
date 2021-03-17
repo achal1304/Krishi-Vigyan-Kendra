@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -225,7 +223,8 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
       ),
     );
   }
- List<PlatformFile> _sampleImage;
+
+  List<PlatformFile> _sampleImage;
   final FirebaseStorage _storage =
       FirebaseStorage(storageBucket: 'gs://kvk-iskcon.appspot.com');
 
@@ -301,24 +300,21 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
   }
 
   Future<String> startUpload() async {
-    // File f = File(filesss[0].path)
-    // File f = File(widget.filess.path);
-    for (int i =0;i<_paths.length;i++){
+    // for (int i =0;i<_paths.length;i++){
 
-      List<File> f;
-      File fii = File(_paths[i].path);
-    
-    String filePath = '/daily/${Path.basename(_paths[i].path)}';
+    //   List<File> f;
+    //   File fii = File(_paths[i].path);
 
-    setState(() {
-      _uploadTask = _storage.ref().child(filePath).putFile(_paths[i].path);
-    });
-    final StorageTaskSnapshot downloadUrl = (await _uploadTask.onComplete);
-    final String url = (await downloadUrl.ref.getDownloadURL());
+    // String filePath = '/daily/${Path.basename(_paths[i].path)}';
 
-    return url;
-    }
-    
+    // setState(() {
+    //   _uploadTask = _storage.ref().child(filePath).putFile(_paths[i].path);
+    // });
+    // final StorageTaskSnapshot downloadUrl = (await _uploadTask.onComplete);
+    // final String url = (await downloadUrl.ref.getDownloadURL());
+
+    // return url;
+    // }
   }
 
   addTo(String url) async {
@@ -349,8 +345,6 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
       );
     }
   }
-}
-
 }
 
 class Uploader extends StatefulWidget {
@@ -439,18 +433,15 @@ class _UploaderState extends State<Uploader> {
   }
 
   Future<String> startUpload() async {
-    // File f = File(filesss[0].path)
-    // File f = File(widget.filess.path);
+    // String filePath = '/daily/${Path.basename(widget.filess.path)}';
 
-    String filePath = '/daily/${Path.basename(widget.filess.path)}';
+    // setState(() {
+    //   _uploadTask = _storage.ref().child(filePath).putFile(widget.filess.path);
+    // });
+    // final StorageTaskSnapshot downloadUrl = (await _uploadTask.onComplete);
+    // final String url = (await downloadUrl.ref.getDownloadURL());
 
-    setState(() {
-      _uploadTask = _storage.ref().child(filePath).putFile(widget.filess.path);
-    });
-    final StorageTaskSnapshot downloadUrl = (await _uploadTask.onComplete);
-    final String url = (await downloadUrl.ref.getDownloadURL());
-
-    return url;
+    // return url;
   }
 
   addTo(String url) async {

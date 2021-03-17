@@ -207,15 +207,19 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
     String queryStringState = "filters[state]=" + sttt;
     String queryStringDistrict = "filters[district]=" + disttt;
     String queryStringCommodity = "filters[commodity]=" + commdtt;
-    if (sttt != "") {
+    if (sttt != "Choose a state") {
       requestUrl = requestUrl + '&' + queryStringState;
-    }
-    if (disttt != "") {
+    } else
+      requestUrl = requestUrl;
+    if (disttt != "Choose ..") {
       requestUrl = requestUrl + '&' + queryStringDistrict;
-    }
+    } else
+      requestUrl = requestUrl;
+
     if (commdtt != "") {
       requestUrl = requestUrl + '&' + queryStringCommodity;
-    }
+    } else
+      requestUrl = requestUrl;
 
     // var requestUrl = postUrl +
     //     '&' +
@@ -1058,7 +1062,7 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
                   future: getPosts(),
                   builder: (BuildContext context,
                       AsyncSnapshot<List<Post>> snapshot) {
-                    if (snapshot.hasData) {
+                    if (snapshot.data.length != 0 || snapshot.hasData) {
                       List<Post> post = snapshot.data;
                       return ListView(
                         shrinkWrap: true,
@@ -1075,7 +1079,12 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
                             .toList(),
                       );
                     }
+                    if (!snapshot.hasData || snapshot.data.length == 0) {
+                      return Center(child: Text("No Data Yet..."));
+                    }
                     return Center(child: CircularProgressIndicator());
+                    // else
+                    //   return Center(child: Text("No Data Yet..."));
                   },
                 ),
               ),
