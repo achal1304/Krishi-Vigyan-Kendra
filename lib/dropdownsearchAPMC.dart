@@ -210,7 +210,7 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
     if (sttt != "Choose a state") {
       requestUrl = requestUrl + '&' + queryStringState;
     } else
-      requestUrl = requestUrl;
+      requestUrl = requestUrl + '&filters[state]=Karnataka';
     if (disttt != "Choose ..") {
       requestUrl = requestUrl + '&' + queryStringDistrict;
     } else
@@ -260,6 +260,7 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
       // print("restresult is :  " + restresult.toString());
 
       templist = list;
+      // print(list);
       return list;
     } else {
       throw "Can't get posts";
@@ -1062,7 +1063,7 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
                   future: getPosts(),
                   builder: (BuildContext context,
                       AsyncSnapshot<List<Post>> snapshot) {
-                    if (snapshot.data.length != 0 || snapshot.hasData) {
+                    if (snapshot.hasData) {
                       List<Post> post = snapshot.data;
                       return ListView(
                         shrinkWrap: true,
@@ -1078,11 +1079,14 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
                                 ))
                             .toList(),
                       );
+                    } else if (snapshot.hasError) {
+                      return Text("Error :  ${snapshot.error}");
                     }
-                    if (!snapshot.hasData || snapshot.data.length == 0) {
-                      return Center(child: Text("No Data Yet..."));
-                    }
-                    return Center(child: CircularProgressIndicator());
+                    // if (!snapshot.hasData || snapshot.data.length == 0) {
+                    //   return Center(child: Text("No Data Yet..."));
+                    // }
+                    else
+                      return Center(child: CircularProgressIndicator());
                     // else
                     //   return Center(child: Text("No Data Yet..."));
                   },
