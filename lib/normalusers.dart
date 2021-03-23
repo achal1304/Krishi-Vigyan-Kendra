@@ -21,6 +21,7 @@ import 'viewcourses.dart';
 import 'viewvideo.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'feedback.dart';
+import 'pdf_upload/viewstoragepdfs.dart';
 // import 'package:login/picker.dart';
 
 // import 'addevent.dart';
@@ -253,6 +254,25 @@ class _NormalUsersState extends State<NormalUsers> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => PDFupload(
+                        // isAdmin: false,
+                        //widget._user,
+                        //widget._googleSignIn,
+                        ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: FaIcon(
+                FontAwesomeIcons.podcast,
+                size: 28.0,
+              ),
+              title: Text('View documents'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PDFFromFirebase(
                         // isAdmin: false,
                         //widget._user,
                         //widget._googleSignIn,
