@@ -10,8 +10,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //Image Plugin
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'demo.dart';
+// import 'demo.dart';
 import 'package:path/path.dart' as Path;
+import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+import 'pdf_view.dart';
 
 //import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -26,6 +28,8 @@ class _PDFuploadState extends State<PDFupload> {
   TextEditingController cont;
   String imgUrl = "";
   bool isLoaded;
+  String docname;
+  PDFDocument document;
 
   void _clear() {
     setState(() => sampleImage = null);
@@ -40,6 +44,12 @@ class _PDFuploadState extends State<PDFupload> {
     setState(() {
       sampleImage = tempImage;
     });
+    if (sampleImage != null) {
+      document = await PDFDocument.fromFile(sampleImage);
+      // docname = sampleImage.path.replaceAll(
+      //     "/data/user/0/com.example.loginkvk/cache/file_picker", "");
+    } else
+      document = null;
   }
 
   List listUrl = [];
@@ -86,14 +96,56 @@ class _PDFuploadState extends State<PDFupload> {
                   Container(
                     padding: EdgeInsets.all(32),
                     child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Image.file(
-                        sampleImage,
-                        width: MediaQuery.of(context).size.width * .45,
-                      ),
-                    ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                        ),
+                        // child: PDFViewer(
+                        //   document: document, zoomSteps: 1,
+                        //   lazyLoad: false,
+                        //   // uncomment below line to scroll vertically
+                        //   scrollDirection: Axis.vertical,
+
+                        //   //uncomment below code to replace bottom navigation with your own
+                        //   navigationBuilder: (context, page, totalPages,
+                        //       jumpToPage, animateToPage) {
+                        //     return ButtonBar(
+                        //       alignment: MainAxisAlignment.spaceEvenly,
+                        //       children: <Widget>[
+                        //         // IconButton(
+                        //         //   icon: Icon(Icons.first_page),
+                        //         //   onPressed: () {
+                        //         //     jumpToPage()(page: 0);
+                        //         //   },
+                        //         // ),
+                        //         IconButton(
+                        //           icon: Icon(Icons.arrow_back),
+                        //           onPressed: () {
+                        //             animateToPage(page: page - 2);
+                        //           },
+                        //         ),
+                        //         IconButton(
+                        //           icon: Icon(Icons.arrow_forward),
+                        //           onPressed: () {
+                        //             animateToPage(page: page);
+                        //           },
+                        //         ),
+                        //         IconButton(
+                        //           icon: Icon(Icons.last_page),
+                        //           onPressed: () {
+                        //             jumpToPage(page: totalPages - 1);
+                        //           },
+                        //         ),
+                        //       ],
+                        //     );
+                        //   },
+                        // )
+                        child: Text("PDF selected = " +
+                            '${Path.basename(sampleImage.path)}')
+                        // Image.file(
+                        //   sampleImage,
+                        //   width: MediaQuery.of(context).size.width * .45,
+                        // ),
+                        ),
                   ),
                   ButtonTheme(
                     child: Uploader(
@@ -132,12 +184,9 @@ class _PDFuploadState extends State<PDFupload> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Demo(
-                                //url: imgUrl,
-                                ),
-                          ),
+                              builder: (context) => PDFVieww(document)),
                         );
-                        _clear();
+                        // _clear();
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),

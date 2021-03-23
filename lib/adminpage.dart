@@ -12,7 +12,7 @@ import 'package:getflutter/getflutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:loginkvk/pdf_upload.dart';
+import 'pdf_upload/pdfupload.dart';
 import 'addaudio.dart';
 import 'addaudio.dart';
 import 'audio.dart';
