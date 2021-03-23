@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:loginkvk/dropdownsearchAPMC.dart';
+import 'package:loginkvk/pdf_upload.dart';
 import 'package:loginkvk/weatherfor.dart';
 import 'demo.dart';
 import 'donate.dart';
@@ -252,7 +253,7 @@ class _NormalUsersState extends State<NormalUsers> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FilePickerDemo(
+                    builder: (context) => PDFupload(
                         // isAdmin: false,
                         //widget._user,
                         //widget._googleSignIn,
