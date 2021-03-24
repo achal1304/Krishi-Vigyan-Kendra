@@ -9,6 +9,8 @@ import 'package:photo_view/photo_view.dart';
 import 'pdf_view.dart';
 import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'viewpdffromfirebase.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart' as Path;
 
 // import 'imagefull.dart';
 
@@ -125,8 +127,8 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
           showDatePicker(
             context: context,
             initialDate: DateTime.now(),
-            firstDate: DateTime(2020),
-            lastDate: DateTime(2021),
+            firstDate: DateTime(2021),
+            lastDate: DateTime(2022),
             // builder: (BuildContext context, Widget child) {
             //   return Theme(
             //     data: ThemeData.light().copyWith(
@@ -164,6 +166,7 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
         itemBuilder: (context, index) {
           return Card(
               child: ListTile(
+            // title: Text(uu[index]),
             title: Text(uu[index]),
             leading: Icon(Icons.picture_as_pdf, color: Colors.redAccent),
             trailing: Icon(

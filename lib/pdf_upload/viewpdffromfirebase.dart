@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 
 class ViewPdf extends StatefulWidget {
-  String url;
+  String _url;
   ViewPdf(String url) {
-    url = url;
+    _url = url;
   }
 
   @override
@@ -19,14 +19,14 @@ class _ViewPdfState extends State<ViewPdf> {
     //get data from first class
     // String data;
     viewNow() async {
-      doc = await PDFDocument.fromURL(widget.url);
+      doc = await PDFDocument.fromURL(widget._url);
       setState(() {});
     }
 
     Widget Loading() {
       viewNow();
       if (doc == null) {
-        return Text("jgjgjggkkj");
+        return Text("Loading...");
       }
     }
 
