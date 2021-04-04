@@ -16,7 +16,7 @@ import 'package:flutter_google_places/flutter_google_places.dart';
 import "package:google_maps_webservice/geocoding.dart";
 
 enum AppState { NOT_DOWNLOADED, DOWNLOADING, FINISHED_DOWNLOADING }
-const kGoogleApiKey = "AIzaSyDA2vSkZdEb9_8Gz-ivOP1vW8QOu01xEW0";
+const kGoogleApiKey = "AIzaSyCxZuY8sxOnAxOhuMY8NVp5rT3g3AHR2Rc";
 
 class WeatherFore extends StatefulWidget {
   FirebaseUser _user;
