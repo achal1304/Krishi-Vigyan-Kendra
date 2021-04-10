@@ -22,7 +22,7 @@ class _PDFViewwState extends State<PDFVieww> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Example'),
+          title: Text('पीडीएफ दस्तऐवज'),
         ),
         body: Center(
           child: widget._document == null
