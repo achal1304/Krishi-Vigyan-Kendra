@@ -7,6 +7,7 @@ class StateModel {
 
   StateModel.fromJson(Map<String, dynamic> json) {
     state = json['state'];
+    // districts = json['districts'].cast<String>();
     districts = json['districts'].cast<String>();
   }
 

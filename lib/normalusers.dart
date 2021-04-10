@@ -264,10 +264,10 @@ class _NormalUsersState extends State<NormalUsers> {
             ),
             ListTile(
               leading: FaIcon(
-                FontAwesomeIcons.podcast,
+                FontAwesomeIcons.solidFilePdf,
                 size: 28.0,
               ),
-              title: Text('View documents'),
+              title: Text('कागदपत्रे पहा'),
               onTap: () {
                 Navigator.push(
                   context,

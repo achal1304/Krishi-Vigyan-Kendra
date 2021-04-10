@@ -9,7 +9,8 @@ import 'package:translator/translator.dart';
 
 import 'forAPMC/post_model.dart';
 
-const kGoogleApiKey = "AIzaSyDA2vSkZdEb9_8Gz-ivOP1vW8QOu01xEW0";
+// const kGoogleApiKey = "AIzaSyDA2vSkZdEb9_8Gz-ivOP1vW8QOu01xEW0";
+const kGoogleApiKey = "AIzaSyCxZuY8sxOnAxOhuMY8NVp5rT3g3AHR2Rc";
 
 class DropDownSearchmenuuu extends StatefulWidget {
   @override
@@ -197,8 +198,13 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
   Future<List<Post>> getPosts() async {
     // Map<String, String> queryParams = {"state": "Maharashtra"};
     // String queryString = Uri(queryParameters: queryParams).query;
-    sttt = await translateanyString(_selectedState);
-    disttt = await translateanyString(_selectedLGA);
+
+    // sttt = await translateanyString(_selectedState);
+    // disttt = await translateanyString(_selectedLGA);
+    //
+    sttt = _selectedState;
+    disttt = _selectedLGA;
+
     commdtt = marendict[commodityy];
     var requestUrl = postUrl;
 
@@ -210,7 +216,7 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
     if (sttt != "Choose a state") {
       requestUrl = requestUrl + '&' + queryStringState;
     } else
-      requestUrl = requestUrl + '&filters[state]=Karnataka';
+      requestUrl = requestUrl + '&filters[state]=Gujarat';
     if (disttt != "Choose ..") {
       requestUrl = requestUrl + '&' + queryStringDistrict;
     } else
@@ -276,17 +282,17 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
   String commo = "";
   String commodityy = "";
 
-  Future<String> translateanyString(String _datatobetranslated) async {
-    _translateddata =
-        await translator.translate(_datatobetranslated, from: 'mr', to: 'en');
-    return _translateddata.toString();
-  }
+  // Future<String> translateanyString(String _datatobetranslated) async {
+  //   _translateddata =
+  //       await translator.translate(_datatobetranslated, from: 'mr', to: 'en');
+  //   return _translateddata.toString();
+  // }
 
-  Future<String> translateanyStringtomarathi(String _datatobetranslated) async {
-    _translateddata =
-        await translator.translate(_datatobetranslated, from: 'en', to: 'mr');
-    return _translateddata.toString();
-  }
+  // Future<String> translateanyStringtomarathi(String _datatobetranslated) async {
+  //   _translateddata =
+  //       await translator.translate(_datatobetranslated, from: 'en', to: 'mr');
+  //   return _translateddata.toString();
+  // }
 
   @override
   void initState() {
@@ -1072,9 +1078,9 @@ class _DropDownSearchmenuuuState extends State<DropDownSearchmenuuu> {
                                   title: Text(post.state),
                                   subtitle: Text(post.district.toString() +
                                       "[ Commodity -" +
-                                      post.commodity +
+                                      post.commodity.toString() +
                                       "] = ." +
-                                      post.modal_price),
+                                      post.modal_price.toString()),
                                   isThreeLine: true,
                                 ))
                             .toList(),

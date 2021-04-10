@@ -164,7 +164,7 @@ class _HomePageSState extends State<HomePageS> {
     return Container(
         child: Center(
             child: Text(
-      "इस्कॉन पुणे मध्ये आपले स्वागत आहे",
+      "आपले स्वागत आहे",
       style: TextStyle(
           decoration: TextDecoration.none,
           color: Colors.white,
@@ -210,7 +210,7 @@ class _HomePageSState extends State<HomePageS> {
     return Container(
         child: Center(
             child: Text(
-      "इस्कॉन पुणे मध्ये आपले स्वागत आहे",
+      "आपले स्वागत आहे",
       style: TextStyle(
           decoration: TextDecoration.none,
           color: Colors.white,

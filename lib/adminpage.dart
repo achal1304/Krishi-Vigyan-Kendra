@@ -12,6 +12,7 @@ import 'package:getflutter/getflutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:loginkvk/pdf_upload/viewstoragepdfs.dart';
 import 'pdf_upload/pdfupload.dart';
 import 'addaudio.dart';
 import 'addaudio.dart';
@@ -667,15 +668,16 @@ class _AdminPageState extends State<AdminPage> {
           ),
           ListTile(
             leading: FaIcon(
-              FontAwesomeIcons.prayingHands,
-              size: 23.0,
+              FontAwesomeIcons.solidFilePdf,
+              size: 28.0,
             ),
-            title: Text('दररोज दर्शन घ्या'),
+            title: Text('कागदपत्रे पहा'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Demo(
+                  builder: (context) => PDFFromFirebase(
+                      // isAdmin: false,
                       //widget._user,
                       //widget._googleSignIn,
                       ),
@@ -683,12 +685,30 @@ class _AdminPageState extends State<AdminPage> {
               );
             },
           ),
+          // ListTile(
+          //   leading: FaIcon(
+          //     FontAwesomeIcons.prayingHands,
+          //     size: 23.0,
+          //   ),
+          //   title: Text('दररोज दर्शन घ्या'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => Demo(
+          //             //widget._user,
+          //             //widget._googleSignIn,
+          //             ),
+          //       ),
+          //     );
+          //   },
+          // ),
           ListTile(
             leading: FaIcon(
-              FontAwesomeIcons.cloudUploadAlt,
+              FontAwesomeIcons.fileUpload,
               size: 23.0,
             ),
-            title: Text('दररोज दर्शन अपलोड करा'),
+            title: Text('कागदजत्र अपलोड करा'),
             onTap: () {
               Navigator.push(
                 context,
