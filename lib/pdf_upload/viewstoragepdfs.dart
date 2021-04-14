@@ -23,9 +23,14 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
   static var now = DateTime.now();
   String date = DateFormat('dd-MM-yyyy').format(now);
   String p = '';
-  List uu;
+  String c = '';
+  String filename = "";
+  List uu = [];
+  List aa;
   List<PDFDocument> pdfdocument;
   String sdate = 'Not set';
+  int startindex = 0;
+  int endindex = 0;
 
   Future<void> checkOn() async {
     var now = DateTime.now();
@@ -37,7 +42,24 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
         await Firestore.instance.collection("pdfupload").document(date).get();
 
     if (ss2.exists) {
-      uu = doc.data['url'];
+      //uu = doc.data['url'];
+      aa = doc.data['url'];
+      for (int i = 0; i < aa.length; i++) {
+        c = aa[i];
+
+        print("c%2");
+        startindex = c.indexOf('%2') + 2;
+        print(startindex);
+        //print(c[79]);
+        endindex = c.indexOf(".pdf") + 4;
+        print(endindex);
+        //print(c[112]);
+        print("filename:");
+        print(c.substring(startindex, endindex));
+        filename = c.substring(startindex, endindex);
+        uu.add(filename);
+      }
+      print(uu);
       // PDFDocument pd;
 
       // for (int i = 0; i < uu.length; i++) {
@@ -129,19 +151,6 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
             initialDate: DateTime.now(),
             firstDate: DateTime(2021),
             lastDate: DateTime(2022),
-            // builder: (BuildContext context, Widget child) {
-            //   return Theme(
-            //     data: ThemeData.light().copyWith(
-            //       primaryColor: Colors.orangeAccent, //Head background
-            //       accentColor: Colors.orangeAccent, //selection color
-            //       colorScheme: ColorScheme.light(primary: Colors.orangeAccent),
-            //       buttonTheme:
-            //           ButtonThemeData(textTheme: ButtonTextTheme.primary),
-            //       //dialogBackgroundColor: Colors.white,//Background color
-            //     ),
-            //     child: child,
-            //   );
-            // },
           ).then((date) {
             setState(() {
               sdate = DateFormat('dd-MM-yyyy').format(date);
@@ -167,7 +176,8 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
           return Card(
               child: ListTile(
             // title: Text(uu[index]),
-            title: Text(uu[index]),
+            title: Text(uu[index].substring(
+                uu[index].indexOf('%2') + 2, uu[index].indexOf(".pdf") + 4)),
             leading: Icon(Icons.picture_as_pdf, color: Colors.redAccent),
             trailing: Icon(
               Icons.arrow_forward,
@@ -181,48 +191,9 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
                 ),
               );
             },
-
-            //  Navigator.push(context, MaterialPageRoute(builder: (context){
-            //    return ViewPDF(pathPDF:files[index].path.toString());
-            //    //open viewPDF page on click
-            //  }));
           ));
         },
       );
-      // return GridView.builder(
-      //   //crossAxisCount: 4,
-      //   itemCount: uu.length,
-      //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      //       crossAxisCount: 2, crossAxisSpacing: 0.0, mainAxisSpacing: 0.0),
-      //   itemBuilder: (BuildContext context, int index) => Container(
-      //     child: Padding(
-      //       padding: const EdgeInsets.all(8.0),
-      //       child: Container(
-      //         color: Colors.white,
-      //         child: GestureDetector(
-      //           onTap: () {
-      //             Navigator.push(
-      //               context,
-      //               MaterialPageRoute(
-      //                 builder: (context) => ImageFull(
-      //                   url: uu[index],
-      //                 ),
-      //               ),
-      //             );
-      //           },
-      //           child: CachedNetworkImage(
-      //             imageUrl: uu[index],
-      //             placeholder: (context, url) => CircularProgressIndicator(),
-      //             fit: BoxFit.fitWidth,
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-
-      //   //mainAxisSpacing: 0.0,
-      //   //crossAxisSpacing: 0.0,
-      // );
     } else if (p == 'dne')
       return Center(
         child: Text(
