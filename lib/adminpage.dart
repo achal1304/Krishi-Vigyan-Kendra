@@ -713,7 +713,7 @@ class _AdminPageState extends State<AdminPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DailyDarshan(
+                  builder: (context) => PDFupload(
                       //widget._user,
                       //widget._googleSignIn,
                       ),
@@ -740,24 +740,24 @@ class _AdminPageState extends State<AdminPage> {
           //     );
           //   },
           // ),
-          ListTile(
-            leading: FaIcon(
-              FontAwesomeIcons.microphoneAlt,
-              size: 28.0,
-            ),
-            title: Text('ऑडिओ अपलोड करा'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PDFupload(
-                      //widget._user,
-                      //widget._googleSignIn,
-                      ),
-                ),
-              );
-            },
-          ),
+          // ListTile(
+          //   leading: FaIcon(
+          //     FontAwesomeIcons.microphoneAlt,
+          //     size: 28.0,
+          //   ),
+          //   title: Text('ऑडिओ अपलोड करा'),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => PDFupload(
+          //             //widget._user,
+          //             //widget._googleSignIn,
+          //             ),
+          //       ),
+          //     );
+          //   },
+          // ),
           ListTile(
             leading: FaIcon(
               FontAwesomeIcons.book,
@@ -845,7 +845,7 @@ class _AdminPageState extends State<AdminPage> {
               );
             },
             leading: FaIcon(
-              FontAwesomeIcons.video,
+              FontAwesomeIcons.react,
               size: 23.0,
             ),
             title: Text('अभिप्राय'),

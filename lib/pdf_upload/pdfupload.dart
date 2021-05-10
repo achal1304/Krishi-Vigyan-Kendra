@@ -71,7 +71,7 @@ class _PDFuploadState extends State<PDFupload> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'दररोज दर्शन अपलोड करा',
+          'कागदजत्र अपलोड करा',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,

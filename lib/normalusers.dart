@@ -225,43 +225,43 @@ class _NormalUsersState extends State<NormalUsers> {
             //     );
             //   },
             // ),
-            ListTile(
-              leading: FaIcon(
-                FontAwesomeIcons.prayingHands,
-                size: 23.0,
-              ),
-              title: Text('दररोज दर्शन '),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Demo(
-                        //widget._user,
-                        //widget._googleSignIn,
-                        ),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: FaIcon(
-                FontAwesomeIcons.podcast,
-                size: 28.0,
-              ),
-              title: Text('ऑडिओ ऐका'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PDFupload(
-                        // isAdmin: false,
-                        //widget._user,
-                        //widget._googleSignIn,
-                        ),
-                  ),
-                );
-              },
-            ),
+            // ListTile(
+            //   leading: FaIcon(
+            //     FontAwesomeIcons.prayingHands,
+            //     size: 23.0,
+            //   ),
+            //   title: Text('दररोज दर्शन '),
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => Demo(
+            //             //widget._user,
+            //             //widget._googleSignIn,
+            //             ),
+            //       ),
+            //     );
+            //   },
+            // ),
+            // ListTile(
+            //   leading: FaIcon(
+            //     FontAwesomeIcons.podcast,
+            //     size: 28.0,
+            //   ),
+            //   title: Text('ऑडिओ ऐका'),
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => PDFupload(
+            //             // isAdmin: false,
+            //             //widget._user,
+            //             //widget._googleSignIn,
+            //             ),
+            //       ),
+            //     );
+            //   },
+            // ),
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.solidFilePdf,
@@ -391,24 +391,24 @@ class _NormalUsersState extends State<NormalUsers> {
                 );
               },
             ),*/
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Donate(
-                        //widget._user,
-                        //widget._googleSignIn,
-                        ),
-                  ),
-                );
-              },
-              leading: FaIcon(
-                FontAwesomeIcons.rupeeSign,
-                size: 25.0,
-              ),
-              title: Text('दान करा'),
-            ),
+            // ListTile(
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => Donate(
+            //             //widget._user,
+            //             //widget._googleSignIn,
+            //             ),
+            //       ),
+            //     );
+            //   },
+            //   leading: FaIcon(
+            //     FontAwesomeIcons.rupeeSign,
+            //     size: 25.0,
+            //   ),
+            //   title: Text('दान करा'),
+            // ),
             // ListTile(
             //   leading: FaIcon(
             //     FontAwesomeIcons.plus,

@@ -42,24 +42,24 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
         await Firestore.instance.collection("pdfupload").document(date).get();
 
     if (ss2.exists) {
-      //uu = doc.data['url'];
-      aa = doc.data['url'];
-      for (int i = 0; i < aa.length; i++) {
-        c = aa[i];
+      uu = doc.data['url'];
+      // aa = doc.data['url'];
+      // for (int i = 0; i < aa.length; i++) {
+      //   c = aa[i];
 
-        print("c%2");
-        startindex = c.indexOf('%2') + 2;
-        print(startindex);
-        //print(c[79]);
-        endindex = c.indexOf(".pdf") + 4;
-        print(endindex);
-        //print(c[112]);
-        print("filename:");
-        print(c.substring(startindex, endindex));
-        filename = c.substring(startindex, endindex);
-        uu.add(filename);
-      }
-      print(uu);
+      //   print("c%2");
+      //   startindex = c.indexOf('%2') + 2;
+      //   print(startindex);
+      //   //print(c[79]);
+      //   endindex = c.indexOf(".pdf") + 4;
+      //   print(endindex);
+      //   //print(c[112]);
+      //   print("filename:");
+      //   print(c.substring(startindex, endindex));
+      //   filename = c.substring(startindex, endindex);
+      //   uu.add(filename);
+      // }
+      // print(uu);
       // PDFDocument pd;
 
       // for (int i = 0; i < uu.length; i++) {
@@ -122,7 +122,7 @@ class _PDFFromFirebaseState extends State<PDFFromFirebase> {
         //backgroundColor: Colors.orangeAccent,
         centerTitle: true,
         title: Text(
-          'दररोज दर्शन',
+          'कागदजत्र दर्शन',
           style: TextStyle(color: Colors.black),
         ),
 
