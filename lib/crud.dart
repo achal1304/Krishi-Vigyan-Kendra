@@ -179,6 +179,24 @@ class Crud {
     );
   }
 
+  addProductData(String title, String desc, String url, int paymentamount,
+      int weight) async {
+    DocumentReference documentRef =
+        Firestore.instance.collection("Products").document(title);
+    Firestore.instance.runTransaction(
+      (transaction) async {
+        await documentRef.setData({
+          'Product Title': title,
+          'Product Description': desc,
+          'URL': url,
+          'Course fees': paymentamount,
+          'Weight': weight
+        });
+        print("Product Data added!");
+      },
+    );
+  }
+
   addRegistrationData(
       String desc, String em, String address, String contact, String name) {
     DocumentReference documentRef = Firestore.instance
@@ -310,6 +328,18 @@ class Crud {
   deleteCourseData(String desc) {
     DocumentReference documentRef =
         Firestore.instance.collection("Courses").document(desc);
+
+    Firestore.instance.runTransaction(
+      (transaction) async {
+        await documentRef.delete();
+        print("Course Data deleted!");
+      },
+    );
+  }
+
+  deleteproductData(String desc) {
+    DocumentReference documentRef =
+        Firestore.instance.collection("Products").document(desc);
 
     Firestore.instance.runTransaction(
       (transaction) async {

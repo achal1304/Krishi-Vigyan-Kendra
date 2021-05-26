@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:loginkvk/dropdownsearchAPMC.dart';
+import 'package:loginkvk/products/viewproducts.dart';
 import 'package:loginkvk/weatherfor.dart';
 import 'demo.dart';
 import 'donate.dart';
@@ -449,6 +450,25 @@ class _NormalUsersState extends State<NormalUsers> {
                 );
               },
             ),
+            ListTile(
+              leading: FaIcon(
+                FontAwesomeIcons.shoppingBag,
+                size: 28.0,
+              ),
+              title: Text('उत्पादने पहा'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ViewProducts(
+                      widget._user,
+                      widget._googleSignIn,
+                    ),
+                  ),
+                );
+              },
+            ),
+
             ListTile(
               leading: FaIcon(
                 FontAwesomeIcons.infoCircle,

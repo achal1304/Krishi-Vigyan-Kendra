@@ -13,6 +13,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:loginkvk/pdf_upload/viewstoragepdfs.dart';
+import 'package:loginkvk/products/addproducts.dart';
+import 'package:loginkvk/products/viewproducts.dart';
 import 'pdf_upload/pdfupload.dart';
 import 'addaudio.dart';
 import 'addaudio.dart';
@@ -794,6 +796,43 @@ class _AdminPageState extends State<AdminPage> {
               );
             },
           ),
+          ListTile(
+            leading: FaIcon(
+              FontAwesomeIcons.shoppingBag,
+              size: 28.0,
+            ),
+            title: Text('उत्पादने जोडा'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddProducts(
+                      //widget._user,
+                      //widget._googleSignIn,
+                      ),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: FaIcon(
+              FontAwesomeIcons.shoppingBag,
+              size: 28.0,
+            ),
+            title: Text('उत्पादने जोडा'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ViewProducts(
+                    widget._user,
+                    widget._googleSignIn,
+                  ),
+                ),
+              );
+            },
+          ),
+
           ListTile(
             onTap: () {
               Navigator.push(
