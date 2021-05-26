@@ -13,34 +13,27 @@ import 'package:loginkvk/imageDialog.dart';
 import 'package:loginkvk/message.dart';
 import 'package:loginkvk/msg.dart';
 
-class CustomCardProductsDescription extends StatefulWidget {
+class CustomCardKHDescription extends StatefulWidget {
   BuildContext c1;
 
   // GoogleSignIn _googleSignIn;
   // FirebaseUser _user;
 
-  CustomCardProductsDescription(
-      {@required this.title,
-      @required this.description,
-      //@required this.topic,
-      @required BuildContext context,
-      @required this.isAdmin1,
-      // @required this.edate,
-      // @required this.stime,
-      @required this.url,
-      // @required this.type,
-      // @required this.venue,
-      @required this.useremail,
-      @required this.usercoursename,
-      // @required this.startdatetimestamp,
-      // @required this.registrationform,
-      @required this.payamount,
-      @required this.weight}) {
+  CustomCardKHDescription({
+    @required this.title,
+    @required this.description,
+    @required this.foldername,
+    //@required this.topic,
+    @required BuildContext context,
+    @required this.isAdmin1,
+    @required this.url,
+  }) {
     c1 = context;
   }
 
   final title;
   final description;
+  final foldername;
 
   //final topic;
   final bool isAdmin1;
@@ -49,20 +42,13 @@ class CustomCardProductsDescription extends StatefulWidget {
   final url;
   // final type;
   // final venue;
-  final useremail;
-  final usercoursename;
-  // final startdatetimestamp;
-  // final registrationform;
-  final int payamount;
-  final int weight;
 
   @override
-  _CustomCardProductsDescriptionState createState() =>
-      _CustomCardProductsDescriptionState();
+  _CustomCardKHDescriptionState createState() =>
+      _CustomCardKHDescriptionState();
 }
 
-class _CustomCardProductsDescriptionState
-    extends State<CustomCardProductsDescription> {
+class _CustomCardKHDescriptionState extends State<CustomCardKHDescription> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
@@ -123,7 +109,7 @@ class _CustomCardProductsDescriptionState
   void initState() {
     _selectedparticipants = "1";
     super.initState();
-    checkIfLikedOrNot();
+    // checkIfLikedOrNot();
     _firebaseMessaging.onTokenRefresh.listen(sendTokenToServer);
     _firebaseMessaging.getToken();
     _firebaseMessaging.configure(
@@ -244,17 +230,6 @@ class _CustomCardProductsDescriptionState
             Divider(
               thickness: 0.5,
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: paidcourse(),
-            ),
-            Divider(
-              thickness: 0.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: weight(),
-            ),
           ],
         ),
       ),
@@ -365,33 +340,5 @@ class _CustomCardProductsDescriptionState
                 ),
               );
             }));
-  }
-
-  Widget paidcourse() {
-    if (widget.payamount == 0 || widget.payamount == null) {
-      return Text("विनामूल्य कोर्स");
-    } else
-      return Text(
-          "Product फी: रु." + widget.payamount.toString() + " per participant");
-  }
-
-  Widget weight() {
-    if (widget.weight == 0 || widget.weight == null) {
-      return Text("Not data for weight");
-    } else
-      return Text("weight : " + widget.payamount.toString() + "Kg");
-  }
-
-  checkIfLikedOrNot() async {
-    DocumentReference ds = await Firestore.instance
-        .collection("Courses")
-        .document(widget.description)
-        .collection("Registration")
-        .document(widget.useremail);
-    Future<Null> snapshot = ds.get().then((DocumentSnapshot snapshot) {
-      setState(() {
-        ispresent = snapshot.data.containsValue(widget.useremail);
-      });
-    });
   }
 }

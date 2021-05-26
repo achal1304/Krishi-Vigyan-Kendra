@@ -325,6 +325,34 @@ class Crud {
     );
   }
 
+  addInfoUrl(String name, String desc, String url, String chosenfolder,
+      var arr) async {
+    DocumentReference documentRef =
+        Firestore.instance.collection(chosenfolder).document(name);
+    Firestore.instance.runTransaction(
+      (transaction) async {
+        await documentRef.setData({
+          'Name': name,
+          'Description': desc,
+          'URL': url,
+          'searchedKey': arr
+        });
+        print("KH URL added!");
+      },
+    );
+  }
+
+  addKHList(String chosenfolder) async {
+    DocumentReference documentRef =
+        Firestore.instance.collection("KHFolderNames").document(chosenfolder);
+    Firestore.instance.runTransaction(
+      (transaction) async {
+        await documentRef.setData({'Name': chosenfolder});
+        print("Folder Name added!");
+      },
+    );
+  }
+
   deleteCourseData(String desc) {
     DocumentReference documentRef =
         Firestore.instance.collection("Courses").document(desc);
@@ -376,6 +404,18 @@ class Crud {
   deleteAudioData(String desc) {
     DocumentReference documentRef =
         Firestore.instance.collection("audio").document(desc);
+
+    Firestore.instance.runTransaction(
+      (transaction) async {
+        await documentRef.delete();
+        print("Audio Data deleted!");
+      },
+    );
+  }
+
+  deleteKHData(String desc, String foldername) {
+    DocumentReference documentRef =
+        Firestore.instance.collection(foldername).document(desc);
 
     Firestore.instance.runTransaction(
       (transaction) async {

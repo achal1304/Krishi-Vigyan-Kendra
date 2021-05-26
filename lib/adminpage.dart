@@ -12,10 +12,12 @@ import 'package:getflutter/getflutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:loginkvk/knowledgeHub/khFolders.dart';
 import 'package:loginkvk/pdf_upload/viewstoragepdfs.dart';
 import 'package:loginkvk/products/addproducts.dart';
 import 'package:loginkvk/products/viewproducts.dart';
 import 'pdf_upload/pdfupload.dart';
+import 'knowledgeHub/addInformation.dart';
 import 'addaudio.dart';
 import 'addaudio.dart';
 import 'audio.dart';
@@ -827,6 +829,43 @@ class _AdminPageState extends State<AdminPage> {
                   builder: (context) => ViewProducts(
                     widget._user,
                     widget._googleSignIn,
+                  ),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: FaIcon(
+              FontAwesomeIcons.brain,
+              size: 28.0,
+            ),
+            title: Text('Add Knowledge'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddInfo(
+                      // widget._user,
+                      // widget._googleSignIn,
+                      ),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: FaIcon(
+              FontAwesomeIcons.brain,
+              size: 28.0,
+            ),
+            title: Text('Knowledge Hub'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => KHFoldersList(
+                    isAdmin: true,
+                    // widget._user,
+                    // widget._googleSignIn,
                   ),
                 ),
               );

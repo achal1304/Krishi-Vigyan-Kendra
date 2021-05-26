@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:loginkvk/dropdownsearchAPMC.dart';
+import 'package:loginkvk/knowledgeHub/khFolders.dart';
 import 'package:loginkvk/products/viewproducts.dart';
 import 'package:loginkvk/weatherfor.dart';
 import 'demo.dart';
@@ -367,6 +368,23 @@ class _NormalUsersState extends State<NormalUsers> {
                       //isAdmin: false,
                       widget._user,
                       widget._googleSignIn,
+                    ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: FaIcon(
+                FontAwesomeIcons.brain,
+                size: 28.0,
+              ),
+              title: Text('Knowledge Hub'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => KHFoldersList(
+                      isAdmin: false,
                     ),
                   ),
                 );
